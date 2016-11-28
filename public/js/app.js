@@ -2,5 +2,6 @@
 
 })(angular.module('app', [
   'app.services',
-  'app.projects'
+  'app.projects',
+  'app.coders'
 ]))

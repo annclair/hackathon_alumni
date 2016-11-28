@@ -2,7 +2,7 @@
     'use strict'
 
     app.component('projectsBlog', {
-        templateUrl: 'js/components/projectsPage.html',
+        templateUrl: 'js/components/projectsPage/projectsPage.html',
 
         controller: ['projectsService', function(projectsService) {
 
