@@ -4,8 +4,8 @@
       $stateProvider.state('app.projects', {
           url:'/projects',
           // templateUrl: 'js/components/projectsPage/projectsPage.html'
-          template: '<projects></projects>'
+          template: '<projects-page></projects-page>'
       })
   }])
 
-})(angular.module('app.projects', []))
+})(angular.module('app.projects', ['ui.router']))
