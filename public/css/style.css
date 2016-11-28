@@ -144,3 +144,10 @@ margin-left : 45%;
   font-weight: bold;
   font-size: 1.2em;
 }
+
+/***** NAVBAR *****/
+
+.navbar-default .navbar-nav>.active>a {
+  color: orange;
+  background-color: rgba(251,168,88,0.2);
+}
