@@ -1,3 +1,3 @@
 ((app) => {
 
-})(angular.module('app.config', []))
+})(angular.module('app.config', ['ui.router']))
