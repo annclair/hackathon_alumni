@@ -25,6 +25,7 @@ padding-top : 50px;
 
 h2{
 font-size: 1.8em;
+text-align: center;
 }
 
 p{
@@ -41,6 +42,10 @@ textarea{
   margin : auto;
 }
 
+.img{
+  margin : 0;
+  padding: 0 ;
+}
 
       /* posts style */
 
@@ -52,10 +57,11 @@ textarea{
     /*width : 260px;*/
 }
 
-.cardsImg{
-  margin : 0;
-  padding: 0 ;
+@media(max-width : ){
+  .cards{
+    margin: 15px;}
 }
+
 
 .cards:hover {
     transform: scale(1.1);
@@ -64,11 +70,7 @@ textarea{
 }
 
 .cardsH2{
-    text-align: center;
     padding-top : 10px;
-
-    /*margin-bottom: 80px;
-    height: 30px;*/
 }
 
 .cardsP{
@@ -80,21 +82,28 @@ textarea{
       /* on open post */
 
 .selectedCard{
-
-    /*margin : auto ;
-    margin-bottom : 70px;
+    margin-top : 30px;
     width : 850px;
-    padding : 30px;*/
+    padding : 30px;
     background-color: white;
-   }
+}
 
-.selectedCardH3{
-  font-weight: normal;
-  font-style: italic;
+.selectedCardImg{
+    width : 100% !important;
+}
+
+.selectedCardH2{
+    font-weight: normal;
+    padding : 10px;
+
 }
 
 .selectedCardP{
-  /*width : auto;*/
+    /*width : auto;*/
+}
+
+.selectedCardInfo{
+    border:orange solid 2px;
 }
 
 
@@ -113,14 +122,14 @@ textarea{
       /* Bouttons */
 
 .btn{
-  color: #739de3;
+  color: rgb(251,168,88);
   border : none;
   background-color: transparent;
   font-size: 1em;
 }
 
 .btnLearnMore{
-  margin: 8% 0 1% 35%;
+  /*margin: 8% 0 1% 35%;*/
 }
 
 .btn-close{
