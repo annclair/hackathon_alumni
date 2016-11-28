@@ -3,21 +3,23 @@
 .blocPage{
     margin: auto;
     background-color: #fafafa;
-    margin : 40px;
+    /*margin : 40px;*/
 }
 
-.blogEntier{
+/*.blogEntier{
       display: flex ;
       justify-content: space-between;
       width : 1200px;
       margin: auto;
-}
+}*/
 
 
       /* Common */
 
 h1{
 text-align: center;
+color: rgb(251,168,88);
+font-weight: bold;
 padding-top : 50px;
 }
 
@@ -42,70 +44,67 @@ textarea{
 
       /* posts style */
 
-.unproject{
-    margin : 15px;
-    padding : 35px;
+.cards{
+    margin : 50px;
+    padding : 0px;
     background-color: white;
     box-shadow: 0 0 50px #d8d8d8;
-    width : 260px;
+    /*width : 260px;*/
 }
 
-.unproject:hover {
-    transform: scale(1.055);
+.cardsImg{
+  margin : 0;
+  padding: 0 ;
+}
+
+.cards:hover {
+    transform: scale(1.1);
     z-index: 5;
     box-shadow: 0 0 50px gray;
 }
 
-.blogH2{
+.cardsH2{
     text-align: center;
-    margin-bottom: 80px;
-    height: 30px;
+    padding-top : 10px;
+
+    /*margin-bottom: 80px;
+    height: 30px;*/
 }
 
-.blogP{
+.cardsP{
+    padding : 30px;
+    height : 80px;
+}
 
-    /*width : 280px;*/
-    height : 150px;
-}
-.separator{
-    text-align: center;
-    font-weight: bold;
-    padding-bottom : 20px;
-}
 
       /* on open post */
 
-.zoomArticle{
+.selectedCard{
 
-    margin : auto ;
+    /*margin : auto ;
     margin-bottom : 70px;
     width : 850px;
-    padding : 30px;
+    padding : 30px;*/
     background-color: white;
    }
 
-.articleH3{
+.selectedCardH3{
   font-weight: normal;
   font-style: italic;
 }
 
-.articleP{
-  width : auto;
-}
-
-.firstRow{
-  /*display: flex ;
-  justify-content: space-between;*/
+.selectedCardP{
+  /*width : auto;*/
 }
 
 
       /* write a new post */
 
-.newArticle{
-  margin : auto ;
+.newCard{
+  /*margin : auto ;
   margin-bottom : 70px;
   width : 850px;
-  padding : 30px;
+  padding : 30px;*/
 }
 
 
