@@ -30,12 +30,13 @@ text-align: center;
 
 p{
 text-align: justify;
-line-height: 1.4em;
+line-height: 1.6em;
 }
 
 input{
   height : 2em;
   text-align: center;
+  margin : 2px;
 }
 
 textarea{
@@ -57,12 +58,6 @@ textarea{
     /*width : 260px;*/
 }
 
-@media(max-width : ){
-  .cards{
-    margin: 15px;}
-}
-
-
 .cards:hover {
     transform: scale(1.1);
     z-index: 5;
@@ -76,6 +71,14 @@ textarea{
 .cardsP{
     padding : 30px;
     height : 80px;
+}
+
+@media(max-width : 768px ){
+  .cards{
+    margin: 0px;}
+  .cardsP{
+    padding : 0px;
+    height : 130px;}
 }
 
 
@@ -106,6 +109,13 @@ textarea{
     border:orange solid 2px;
 }
 
+.selectedCardH3{
+    color: rgb(251,168,88);
+    text-align: center;
+}
+.selectedCardInfoTitle{
+  background-color: rgba(251,168,88,0.2);
+}
 
       /* write a new post */
 

@@ -1,35 +1,94 @@
-
+<section>
     <div class="blogEntier">
 
-        <div ng-repeat="project in $ctrl.projects" class="unproject" ng-if="!$ctrl.selectedProject && !$ctrl.newProject" >
-            <h2 class="blogH2"> {{project.title}} </h2>
-            <p class="blogP"> {{project.resume | limitTo:300 }} </p>
-            <button type="button" name="button" class="btn btnLearnMore" ng-click="$ctrl.selected(project, $index)">Learn more -></button>
+        <h1> Les projets de la Wild Code School</h1>
+
+        <div class="container-fluid">
+            <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                <div ng-repeat="project in $ctrl.projects" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
+                    <img class="cardsImg col-xs-12 img-responsive img" src="../img/visuels/canteloup-project.png" />
+                    <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
+                    <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
+                    <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(project, $index)">En savoir +</button>
+                </div>
+
+                <div class="selectedCard col-lg-offset-2 col-lg-8" ng-if="$ctrl.selectedProject">
+                    <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedProject = null"> X </button>
+
+                    <img class="selectedCardImg img-responsive img" src="../img/visuels/canteloup-project.png" />
+
+                    <h2 class="selectedCardH2" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.title}} </h2>
+                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.title" class="editTitle">
+
+                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.resume}} </p>
+                    <textarea rows="8" cols="100" ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.resume" class="editContent"></textarea>
+
+                    <div class="row">
+                        <p class="selectedCardP col-xs-3" ng-if=" $ctrl.selectedProject.projectUrl"> Site du projet : </p>
+                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.projectUrl"> <a href="{{$ctrl.selectedProject.projectUrl}}"> {{$ctrl.selectedProject.projectUrl}} </a></p>
+                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="ProjectUrl" ng-model="$ctrl.selectedProject.projectUrl" class="editTitle">
+
+                    <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                        <div class="col-xs-12 col-lg-5 selectedCardInfo">
+                            <div class="row selectedCardInfoTitle">
+                                <h3 class="selectedCardH3"> Informations</h3>
+                            </div>
+                            <div class="row">
+                                <p class="selectedCardP col-lg-4">Ecole : </p>
+                                <p class="selectedCardP col-lg-8" ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.school}}</p>
+                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="school" ng-model="$ctrl.selectedProject.school" class="editTitle selectedCardP col-lg-8">
+                            </div>
+                            <p>Languages utilisés : </p>
+                            <ul>
+                                <li> HTML5 </li>
+                                <li> CSS3 </li>
+                                <li ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.language}}</li>
+                            </ul>
+                            <input ng-if="$ctrl.selectedProject.editMode" type="text" name="language" ng-model="$ctrl.selectedProject.language" class="editTitle">
+                        </div>
+
+                        <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github || $ctrl.selectedProject.linkedin || $ctrl.selectedProject.twitter || $ctrl.selectedProject.facebook">
+                          <div class="row selectedCardInfoTitle">
+                              <h3 class="selectedCardH3" > Réseaux Sociaux</h3>
+                          </div>
+                            <div class="row">
+                                <i class="fa fa-github fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github"></i>
+                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.github"> <a href="{{$ctrl.selectedProject.github}}"> {{$ctrl.selectedProject.github}}</a></p>
+                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="github" ng-model="$ctrl.selectedProject.github" class="editTitle">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-linkedin fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.linkedin"></i>
+                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.linkedin"> <a href="{{$ctrl.selectedProject.linkedin}}"> {{$ctrl.selectedProject.linkedin}}</a></p>
+                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="linkedin" ng-model="$ctrl.selectedProject.linkedin" class="editTitle">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-twitter fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.twitter"></i>
+                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.twitter"> <a href="{{$ctrl.selectedProject.twitter}}"> {{$ctrl.selectedProject.twitter}} </a></p>
+                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="twitter" ng-model="$ctrl.selectedProject.twitter" class="editTitle">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-facebook fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.facebook"></i>
+                                <p ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.facebook"><a href="{{$ctrl.selectedProject.facebook}}">{{$ctrl.selectedProject.facebook}}</a></p>
+                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="facebook" ng-model="$ctrl.selectedProject.facebook" class="editTitle">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.edit(selectedProject) ; $ctrl.selectedProject.editMode = true"> Modifier </button>
+                    <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.save() ; $ctrl.selectedProject.editMode = false">Valider</button>
+                    <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.delete(selectedProject, $index)"> Supprimer </button>
+                    <button type="button" class="btn " name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.cancel()">Annuler</button>
+                </div>
+
+                <div class="newArticle" ng-if="$ctrl.newProject">
+                    <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newProject = null"> X </button>
+                    <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newProject.title" class="newTitle">
+                    <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newProject.visuel" class="newAuthor">
+                    <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newProject.resume" class="newContent"> </textarea>
+                    <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
+                </div>
+
+            </div>
         </div>
-
-        <div class="zoomArticle" ng-if="$ctrl.selectedProject">
-            <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedProject = null"> X </button>
-
-            <h2 class="articleH2" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.title}} </h2>
-            <input ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.title" class="editTitle">
-            <!-- <h3 class="articleH3"> publié le {{$ctrl.selectedProject.createdAt | date:"dd/MM/yyyy"}} {{($ctrl.selectedProject.createdAt != $ctrl.selectedProject.updatedAt ? ' et modifié le ' + ctrl.selectedProject.updateAt : null) | date:"dd/MM/yyyy"}} par {{$ctrl.selectedProject.author}}</h3> -->
-            <!-- <input ng-if="$ctrl.selectedProject.editMode" type="text" name="author" ng-model="$ctrl.selectedProject.author" class="editAuthor"> -->
-
-            <p class="articleP" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.resume}} </p>
-            <textarea rows="8" cols="100" ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.resume" class="editContent"></textarea>
-            <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.edit(selectedProject) ; $ctrl.selectedProject.editMode = true"> Modifier </button>
-            <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.save() ; $ctrl.selectedProject.editMode = false">Valider</button>
-            <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.delete(selectedProject, $index)"> Supprimer </button>
-            <button type="button" class="btn " name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.cancel()">Annuler</button>
-        </div>
-
-        <div class="newArticle" ng-if="$ctrl.newProject">
-            <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newProject = null"> X </button>
-            <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newProject.title" class="newTitle">
-            <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newProject.visuel" class="newAuthor">
-            <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newProject.resume" class="newContent"> </textarea>
-            <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
-        </div>
-
-    </div>
-    <button type="button" name="button" ng-click="($ctrl.newProject = {})" class="btn btnAddProject" ng-if="!$ctrl.selectedProject"> + Add article </button>
+        <button type="button" name="button" ng-click="($ctrl.newProject = {})" class="btn btnAddProject" ng-if="!$ctrl.selectedProject"> + Add article </button>
+</section>
