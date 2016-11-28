@@ -1,0 +1,28 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "exercice réalisation d'un blog - A.Claire",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.5",
+    "morgan": "^1.7.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon --inspect server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annclair/EX-blog.git"
+  },
+  "author": "Anne-Claire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annclair/EX-blog/issues"
+  },
+  "homepage": "https://github.com/annclair/EX-blog#readme"
+}

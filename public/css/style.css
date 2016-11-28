@@ -1,0 +1,147 @@
+      /* home page */
+
+.blocPage{
+    margin: auto;
+    background-color: #fafafa;
+    margin : 40px;
+}
+
+.blogEntier{
+      display: flex ;
+      justify-content: space-between;
+      width : 1200px;
+      margin: auto;
+}
+
+
+      /* Common */
+
+h1{
+text-align: center;
+padding-top : 50px;
+}
+
+h2{
+font-size: 1.8em;
+}
+
+p{
+text-align: justify;
+line-height: 1.4em;
+}
+
+input{
+  height : 2em;
+  text-align: center;
+}
+
+textarea{
+  margin : auto;
+}
+
+
+      /* posts style */
+
+.unproject{
+    margin : 15px;
+    padding : 35px;
+    background-color: white;
+    box-shadow: 0 0 50px #d8d8d8;
+    width : 260px;
+}
+
+.unproject:hover {
+    transform: scale(1.055);
+    z-index: 5;
+    box-shadow: 0 0 50px gray;
+}
+
+.blogH2{
+    text-align: center;
+    margin-bottom: 80px;
+    height: 30px;
+}
+
+.blogP{
+
+    /*width : 280px;*/
+    height : 150px;
+}
+.separator{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom : 20px;
+}
+
+      /* on open post */
+
+.zoomArticle{
+
+    margin : auto ;
+    margin-bottom : 70px;
+    width : 850px;
+    padding : 30px;
+    background-color: white;
+   }
+
+.articleH3{
+  font-weight: normal;
+  font-style: italic;
+}
+
+.articleP{
+  width : auto;
+}
+
+.firstRow{
+  /*display: flex ;
+  justify-content: space-between;*/
+}
+
+
+      /* write a new post */
+
+.newArticle{
+  margin : auto ;
+  margin-bottom : 70px;
+  width : 850px;
+  padding : 30px;
+}
+
+
+
+
+      /* Bouttons */
+
+.btn{
+  color: #739de3;
+  border : none;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+.btnLearnMore{
+  margin: 8% 0 1% 35%;
+}
+
+.btn-close{
+  float : right;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.btnAddProject{
+  font-weight: bold;
+  font-size: 1.6em;
+  margin : 5% 0 5% 45%;
+}
+
+.btnOk, .btnEdit{
+margin-left : 45%;
+}
+
+.nextprev{
+  width : 40px;
+  font-weight: bold;
+  font-size: 1.2em;
+}
