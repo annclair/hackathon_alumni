@@ -1,8 +1,6 @@
 
     <div class="blogEntier">
 
-        <!-- <button type="button" class="btn nextprev" name="button" ng-click="$ctrl.back()" ng-if="$ctrl.startIndex > 0 && !$ctrl.selectedProject && !$ctrl.newProject"> < </button> -->
-
         <div ng-repeat="project in $ctrl.projects" class="unproject" ng-if="!$ctrl.selectedProject && !$ctrl.newProject" >
             <h2 class="blogH2"> {{project.title}} </h2>
             <p class="blogP"> {{project.resume | limitTo:300 }} </p>
@@ -32,8 +30,6 @@
             <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newProject.resume" class="newContent"> </textarea>
             <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
         </div>
-
-        <button type="button" class="btn nextprev" name="button" ng-click="$ctrl.next()" ng-if="$ctrl.startIndex < $ctrl.projects.length-3 && !$ctrl.selectedProject && !$ctrl.newProject"> > </button>
 
     </div>
     <button type="button" name="button" ng-click="($ctrl.newProject = {})" class="btn btnAddProject" ng-if="!$ctrl.selectedProject"> + Add article </button>

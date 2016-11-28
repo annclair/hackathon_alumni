@@ -3,6 +3,7 @@
 let mongoose = require('mongoose')
 
 // Create du schéma Project
+let Schema = mongoose.Schema
 let projectModel = mongoose.model('Project', new mongoose.Schema({
     title : {
         type: String,
@@ -30,9 +31,15 @@ let projectModel = mongoose.model('Project', new mongoose.Schema({
     github : {
         type : String
     },
-    projetUrl : {
+    projectUrl : {
         type : String
     }
+    // ,
+    //
+    // coders : [{
+    //     type : Schema.Types.ObjectId,
+    //     ref : 'Coder'
+    // }]
 
 }, {
     timestamps: true

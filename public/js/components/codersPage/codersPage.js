@@ -2,9 +2,9 @@
     'use strict'
 
     app.component('codersPage', {
-        templateUrl: 'js/components/codersPage/codersPagePage.html',
+        templateUrl: 'js/components/codersPage/codersPage.html',
 
-        controller: ['codersPageService', function(codersService) {
+        controller: ['codersService', function(codersService) {
 
             let _previous = {}
             this.startIndex = 0
@@ -13,12 +13,12 @@
                 this.coders = res.data
             })
 
-            this.selected = (project, index) => {
+            this.selected = (coder, index) => {
                 this.selectedCoder = coder
                 this.selectedCoder.position = index
             }
 
-            //on ajoute des projects
+            //on ajoute des coders
             this.add = () => {
                 codersService.add(this.newCoder).then((res) => {
                     this.coders.push(res.data)
@@ -54,14 +54,6 @@
                 this.selectedCoder = null
             }
 
-            // gestion des fleches précedent & suivant
-            this.next = function(coders) {
-                this.startIndex += 1;
-            };
-
-            this.back = function(coders) {
-                this.startIndex -= 1;
-            };
         }]
     })
 

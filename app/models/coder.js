@@ -1,21 +1,25 @@
 'use strict'
 
 let mongoose = require('mongoose')
+let Schema = mongoose.Schema
 
 // Create du schéma Project
 let coderModel = mongoose.model('Coder', new mongoose.Schema({
     firstname : {
-      type: String,
-      required: true
+      type: String
+      // ,
+      // required: true
     },
     lastname : {
-      type: String,
-      required: true
+      type: String
+      // ,
+      // required: true
     },
     email : {
       type: String,
-      unique : true,
-      required: true
+      unique : true
+      // ,
+      // required: true
     },
     photo : {
         type: String
@@ -50,6 +54,12 @@ let coderModel = mongoose.model('Coder', new mongoose.Schema({
     coderUrl : {
         type : String
     }
+    // ,
+
+    // projects : [{
+    //     type : Schema.Types.ObjectId,
+    //     ref : 'Project'
+    // }]
 
 }, {
     timestamps: true

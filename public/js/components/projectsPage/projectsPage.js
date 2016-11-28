@@ -1,7 +1,7 @@
 ((app) => {
     'use strict'
 
-    app.component('projectsBlog', {
+    app.component('projectsPage', {
         templateUrl: 'js/components/projectsPage/projectsPage.html',
 
         controller: ['projectsService', function(projectsService) {
@@ -54,14 +54,6 @@
                 this.selectedProject = null
             }
 
-            // gestion des fleches précedent & suivant
-            this.next = function(projects) {
-                this.startIndex += 1;
-            };
-
-            this.back = function(projects) {
-                this.startIndex -= 1;
-            };
         }]
     })
 

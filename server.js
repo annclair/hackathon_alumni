@@ -9,7 +9,7 @@ let methodOverride = require('method-override')
 let morgan = require('morgan')
 let cors = require('cors')
 let routes = require('./app/routes')
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8001
 
 // Indication du dossier de notre application Angular
 app.use(express.static(__dirname + '/public'))
