@@ -1,35 +1,42 @@
+<section>
 
-    <div class="blogEntier">
+    <h1> Les Codeurs de la Wild Code School</h1>
 
-        <div ng-repeat="coder in $ctrl.coders" class="unproject" ng-if="!$ctrl.selectedCoder && !$ctrl.newCoder" >
-            <h2 class="blogH2"> {{coder.title}} </h2>
-            <p class="blogP"> {{coder.resume | limitTo:300 }} </p>
-            <button type="button" name="button" class="btn btnLearnMore" ng-click="$ctrl.selected(coder, $index)">Learn more -></button>
+    <div class="container-fluid">
+        <div class="col-lg-offset-1 col-lg-10">
+            <div ng-repeat="coder in $ctrl.coders" class="cards col-xs-12 col-md-6  col-lg-5 " ng-if="!$ctrl.selectedCoder && !$ctrl.newCoder">
+                <img class="cardsImg col-xs-12 img-responsive" src="../img/photos/photo_personne.jpg" />
+                <h2 class="cardsH2 col-xs-12"> {{coder.firstname}} {{coder.lastname}} </h2>
+                <p class="cardsP col-xs-12"> {{coder.resume | limitTo:200 }} </p>
+                <p class="cardsUrlLink col-xs-12"> {{coder.coderUrl}} </p>
+                <button type="button" name="button" class="btn btnLearnMore" ng-click="$ctrl.selected(coder, $index)">Learn more -></button>
+            </div>
+
+            <div class="selectedCard" ng-if="$ctrl.selectedCoder">
+                <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedCoder = null"> X </button>
+
+                <h2 class="selectedCardH2" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.title}} </h2>
+                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="title" ng-model="$ctrl.selectedCoder.title" class="editTitle">
+                <!-- <h3 class="articleH3"> publié le {{$ctrl.selectedCoder.createdAt | date:"dd/MM/yyyy"}} {{($ctrl.selectedCoder.createdAt != $ctrl.selectedCoder.updatedAt ? ' et modifié le ' + ctrl.selectedCoder.updateAt : null) | date:"dd/MM/yyyy"}} par {{$ctrl.selectedCoder.author}}</h3> -->
+                <!-- <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="author" ng-model="$ctrl.selectedCoder.author" class="editAuthor"> -->
+
+                <p class="selectedCardP" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.resume}} </p>
+                <textarea rows="8" cols="100" ng-if="$ctrl.selectedCoder.editMode" type="text" name="title" ng-model="$ctrl.selectedCoder.resume" class="editContent"></textarea>
+                <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> Modifier </button>
+                <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false">Valider</button>
+                <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.delete(selectedCoder, $index)"> Supprimer </button>
+                <button type="button" class="btn " name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.cancel()">Annuler</button>
+            </div>
+
+            <div class="newCard" ng-if="$ctrl.newCoder">
+                <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newCoder = null"> X </button>
+                <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newCoder.title" class="newCardTitle">
+                <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newCoder.visuel" class="newCardCentent">
+                <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newCoder.resume" class="newContent"> </textarea>
+                <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
+            </div>
+
         </div>
-
-        <div class="zoomArticle" ng-if="$ctrl.selectedCoder">
-            <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedCoder = null"> X </button>
-
-            <h2 class="articleH2" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.title}} </h2>
-            <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="title" ng-model="$ctrl.selectedCoder.title" class="editTitle">
-            <!-- <h3 class="articleH3"> publié le {{$ctrl.selectedCoder.createdAt | date:"dd/MM/yyyy"}} {{($ctrl.selectedCoder.createdAt != $ctrl.selectedCoder.updatedAt ? ' et modifié le ' + ctrl.selectedCoder.updateAt : null) | date:"dd/MM/yyyy"}} par {{$ctrl.selectedCoder.author}}</h3> -->
-            <!-- <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="author" ng-model="$ctrl.selectedCoder.author" class="editAuthor"> -->
-
-            <p class="articleP" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.resume}} </p>
-            <textarea rows="8" cols="100" ng-if="$ctrl.selectedCoder.editMode" type="text" name="title" ng-model="$ctrl.selectedCoder.resume" class="editContent"></textarea>
-            <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> Modifier </button>
-            <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false">Valider</button>
-            <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.delete(selectedCoder, $index)"> Supprimer </button>
-            <button type="button" class="btn " name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.cancel()">Annuler</button>
-        </div>
-
-        <div class="newArticle" ng-if="$ctrl.newCoder">
-            <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newCoder = null"> X </button>
-            <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newCoder.title" class="newTitle">
-            <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newCoder.visuel" class="newAuthor">
-            <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newCoder.resume" class="newContent"> </textarea>
-            <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
-        </div>
-
     </div>
     <button type="button" name="button" ng-click="($ctrl.newCoder = {})" class="btn btnAddCoder" ng-if="!$ctrl.selectedCoder"> + Add article </button>
+</section>
