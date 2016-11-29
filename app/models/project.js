@@ -40,16 +40,16 @@ let projectModel = mongoose.model('Project', new mongoose.Schema({
     github : {
         type : String
     },
-    customerName{
+    customerName : {
         type : String
     },
-    customerAddress{
+    customerAddress : {
         type : String
     },
-    customerEmail{
+    customerEmail : {
         type : String
     },
-    customerPhoneNumber{
+    customerPhoneNumber : {
         type : Number
     }
 

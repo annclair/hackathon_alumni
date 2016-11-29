@@ -51,7 +51,7 @@ let coderModel = mongoose.model('Coder', new mongoose.Schema({
     facebook : {
         type : String
     },
-    google+ : {
+    google : {
         type : String
     },
     youtube : {
