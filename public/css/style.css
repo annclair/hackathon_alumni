@@ -65,8 +65,19 @@ textarea{
 }
 
 .cardsP {
-    padding : 30px;
-    height : 80px;
+    padding : 10px 30px 10px 30px ;
+    height : 70px;
+}
+
+.cardsH3 {
+    padding : 10px 30px 10px 30px ;
+    font-size: : 1.2em;
+    color: rgb(251,168,88);
+
+}
+
+.cardsViewPic{
+  margin : 3px;
 }
 
 @media(max-width : 768px ){

@@ -10,6 +10,7 @@
             this.startIndex = 0
             codersService.get().then((res) => {
                 this.coders = res.data
+// console.log(this.coders)
             })
 
             this.selected = (coder, index) => {
@@ -19,6 +20,7 @@
 
             //on ajoute des coders
             this.add = () => {
+              this.newCoder.photo = this.photo.base64
                 codersService.add(this.newCoder).then((res) => {
                     this.coders.push(res.data)
                     this.newCoder = {}

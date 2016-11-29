@@ -1,7 +1,6 @@
 'use strict'
 
 let mongoose = require('mongoose')
-let Schema = mongoose.Schema
 
 // Create du schéma Project
 let projectModel = mongoose.model('Project', new mongoose.Schema({
@@ -51,14 +50,12 @@ let projectModel = mongoose.model('Project', new mongoose.Schema({
     },
     customerPhoneNumber : {
         type : Number
-    }
+    },
 
-    // ,
-    //
-    // coders : [{
-    //     type : Schema.Types.ObjectId,
-    //     ref : 'Coder'
-    // }]
+    coders : [{
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Coder'
+    }]
 
 }, {
     timestamps: true
