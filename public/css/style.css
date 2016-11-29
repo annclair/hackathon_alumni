@@ -160,18 +160,14 @@ textarea{
   font-weight: bold;
 }
 
-.btnAddProject{
-  font-weight: bold;
-  font-size: 1.6em;
-  margin : 5% 0 5% 45%;
-}
-
 .btnOk, .btnEdit{
 margin-left : 45%;
 }
 
-.nextprev{
-  width : 40px;
-  font-weight: bold;
-  font-size: 1.2em;
+.buttonsEdit{
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  padding: 10px;
+  z-index: 99999999;
 }

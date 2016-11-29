@@ -13,17 +13,19 @@ const port = process.env.PORT || 8001
 
 // Indication du dossier de notre application Angular
 app.use(express.static(__dirname + '/public'))
-// Configuration des logs
-app.use(morgan('combined')) /
-// Configuration du parser pour récupérer les infos des requêtes -- Config par defaut
+    // Configuration des logs
+app.use(morgan('combined'))
+    // Configuration du parser pour récupérer les infos des requêtes -- Config par defaut
 app.use(bodyParser.urlencoded({
+    'limit': '100mb',
     'extended': 'true'
 }))
-app.use(bodyParser.json())
+app.use(bodyParser.json({
+  limit:'100mb'
+}))
 app.use(bodyParser.json({
     type: 'application/vnd.api+json'
 }))
-
 app.use(methodOverride('X-HTTP-Method-Override'))
 
 //CORS cross origin request
@@ -34,7 +36,7 @@ app.use('/api', routes())
 
 // Création du serveur
 let server = http.Server(app) // creer server http avec notre aplli app en parametre
-// Mise en écoute
+    // Mise en écoute
 server.listen(port)
 console.log(`server listening on port ${port}`)
 

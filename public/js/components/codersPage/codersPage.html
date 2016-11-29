@@ -126,7 +126,7 @@
                         <imput ng-if="$ctrl.selectedCoder.editMode" type="text" name="project" ng-model="{{project.title}}">
                     </div>
 
-                    <div class="buttonsEdit">
+                    <div class="btn buttonsEdit">
                         <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> <i class="fa fa-pencil fa-3x"></i> </button>
                         <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false"> <i class="fa fa-check fa-3x"></i> </button>
                         <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.delete(selectedCoder, $index)"> <i class="fa fa-trash fa-3x"></i> </button>
@@ -213,7 +213,7 @@
 
         </div>
     </div>
-    <button type="button" name="button" ng-click="($ctrl.newCoder = {})" class="btn btnAdd" ng-if="!$ctrl.selectedCoder"> <i class=" fa fa-plus-circle fa-3x"></i> </button>
+    <button type="button" name="button" ng-click="($ctrl.newCoder = {})" class="btn buttonsEdit" ng-if="!$ctrl.selectedCoder"> <i class=" fa fa-plus-circle fa-3x"></i> </button>
     </div>
 
 </section>
