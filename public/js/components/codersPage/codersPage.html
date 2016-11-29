@@ -10,6 +10,18 @@
                     <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
                     <h2 class="cardsH2 col-xs-12"> {{coder.firstname}} {{coder.lastname}} </h2>
                     <p class="cardsP col-xs-12"> {{coder.resume | limitTo:200 }} </p>
+
+                    <h3 class="cardsH3 col-xs-12 text-center"> Ses projets : </h3>
+                    <div ng-repeat="project in coder.projects | limitTo : 3" >
+                        <div class="container-fluid col-xs-4 cardsViewPic">
+                            <div class="row">
+                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                            </div>
+                            <div class="row">
+                                <p class="text-center">{{project.title}}</p>
+                            </div>
+                        </div>
+                    </div>
                     <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(coder, $index)">En savoir +</button>
                 </div>
 
@@ -55,7 +67,7 @@
                             <ul>
                                 <li> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </li>
                                 <li ng-if="!$ctrl.selectedCoder.editMode">{{$ctrl.selectedCoder.language}}</li>
-                                <li ng-if="$ctrl.selectedCoder.editMode"> <input  type="text" name="language" ng-model="$ctrl.selectedCoder.language"> </li>
+                                <li ng-if="$ctrl.selectedCoder.editMode"> <input type="text" name="language" ng-model="$ctrl.selectedCoder.language"> </li>
                             </ul>
 
                         </div>
@@ -95,7 +107,25 @@
                                 <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="youtube" ng-model="$ctrl.selectedCoder.youtube">
                             </div>
                         </div>
+
                     </div>
+
+                    <div>
+                        <p class="cardsP col-xs-12"> Tous les projets auxquels {{$ctrl.selectedCoder.firstname}} {{$ctrl.selectedCoder.lastname}} a participé : </p>
+
+                        <div ng-repeat="project in $ctrl.selectedCoder.projects | limitTo : 3" >
+                            <div class="container-fluid col-xs-4 cardsViewPic">
+                                <div class="row">
+                                    <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                                </div>
+                                <div class="row">
+                                    <p class="text-center">{{project.title}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <imput ng-if="$ctrl.selectedCoder.editMode" type="text" name="project" ng-model="{{project.title}}">
+                    </div>
+
                     <div class="buttonsEdit">
                         <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> <i class="fa fa-pencil fa-3x"></i> </button>
                         <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false"> <i class="fa fa-check fa-3x"></i> </button>

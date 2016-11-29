@@ -59,6 +59,18 @@
                     <p class="cardsP col-xs-12"> {{project.techno}} </p>
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
 
+                    <h3 class="cardsH3 col-xs-12 text-center"> Ses codeurs : </h3>
+                    <div ng-repeat="coder in project.coders | limitTo : 4" >
+                        <div class="container-fluid col-xs-2 cardsViewPic">
+                            <div class="row">
+                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                            </div>
+                            <div class="row">
+                                <p class="text-center">{{project.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(project, $index)">En savoir +</button>
                 </div>
                 <!-- Lecture et modification des projets -->
