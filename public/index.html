@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/projectsPage.css" />
+    <link rel="stylesheet" href="css/navbar-filter.css" />
+    <link rel="stylesheet" href="css/footer.css" />
 
 </head>
 
@@ -47,130 +50,72 @@
     </div><!--/.container-fluid -->
   </nav>
 
-      <ul id="menu-demo2" style="margin-top:95px">
-      	<li><a href="#">Type de projet</a>
-      		<ul>
-      			<li><a href="#">Web Apps</a></li>
-      			<li><a href="#">Mobile Apps</a></li>
-            <li>
-              <select ng-model="project_type">
-                <option>red</option>
-                <option>black</option>
-              </select>
-            </li>
+  <div>
+      <!-- ui-view contains the nested views needed by ui-router -->
+      <ui-view></ui-view>
+  </div>
 
-      		</ul>
+  <section class="footer">
+    <div class="container">
+        <div class="row">
+        	<div class="col-lg-4  col-md-4 col-sm-4">
+            	<div class="footer_dv">
+                	<h4>TROUVER UNE VILLE</h4>
+                	<ul>
+                    	<li class="line_rv"><a href="#">BORDEAUX</a></li>
 
-      	</li>
-      	<li><a href="#">Langages</a>
-      		<ul>
-      			<li><a href="#">Php</a></li>
-      			<li><a href="#">Javascript</a></li>
-      			<li><a href="#">Ruby</a></li>
-      			<li><a href="#">Java</a></li>
-      		</ul>
-      	</li>
-      	<li><a href="#">Technos</a>
-      		<ul>
-      			<li><a href="#">Pages statiques</a></li>
-      			<li><a href="#">Symphony</a></li>
-      			<li><a href="#">Drupal</a></li>
-      			<li><a href="#">Wordpress</a></li>
-      			<li><a href="#">Prestashop</a></li>
-      			<li><a href="#">Mean Stack</a></li>
-      			<li><a href="#">Ionic</a></li>
-      			<li><a href="#">Ruby on Rails</a></li>
-      			<li><a href="#">Android</a></li>
-      		</ul>
-      	</li>
-      	<li><a href="#">Ecoles</a>
-      		<ul>
-      			<li><a href="#">La Loupe</a></li>
-      			<li><a href="#">Chartres</a></li>
-      			<li><a href="#">Orléans</a></li>
-      			<li><a href="#">Bordeaux</a></li>
-      			<li><a href="#">Toulouse</a></li>
-      			<li><a href="#">Lyon</a></li>
-            <li><a href="#">Fontainebleau</a></li>
-      		</ul>
-      	</li>
-    </ul>
-
-
-    <div>
-        <!-- ui-view contains the nested views needed by ui-router -->
-        <ui-view></ui-view>
-    </div>
-
-    <section class="footer">
-      <div class="container">
-          <div class="row">
-          	<div class="col-lg-4  col-md-4 col-sm-4">
-              	<div class="footer_dv">
-                  	<h4>TROUVER UNE VILLE</h4>
-                  	<ul>
-                      	<li class="line_rv"><a href="#">BORDEAUX</a></li>
-
-                          <li><a href="#">LA LOUPE</a></li>
-                          <li><a href="#">CHARTRES</a></li>
-                          <li><a href="#">TOULOUSE</a></li>
-                          <li><a href="#">LYON</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-lg-4  col-md-4 col-sm-4">
-              	<div class="footer_dv">
-                  	<h4>A PROPOS DE NOUS</h4>
-                  	<ul>
-                      	<li><a href="#">LA WILD CODE SCHOOL ?</a></li>
-                          <li><a href="#">STACK</a></li>
-                          <li><a href="#">CONTACT</a></li>
-                          <li><a href="#">BLOG</a></li>
-                          <li><a href="#">PRESSE</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <div class="col-lg-4  col-md-4 col-sm-4">
-              	<div class="footer_dv">
-                  	<h4>SUIVEZ-NOUS</h4>
-                  	<ul>
-                        <a href='#'><i class="fa fa-twitter fa-2x fa-fw"></i></a> <br>
-                        <a href='#'><i class="fa fa-facebook fa-2x fa-fw"></i></a> <br>
-                        <a href='#'><i class="fa fa-linkedin fa-2x fa-fw"></i></a> <br>
-                        <a href='#'><i class="fa fa-youtube-play fa-2x fa-fw"></i></a> <br>
-                        <a href='#'><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-
-          <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-            		    <div class="col-md-12 text-center">
-                      <span>© 2016 &nbsp; | &nbsp; Created &nbsp; with &nbsp; <i class="fa fa-heart"></i> &nbsp;  by  &nbsp; WCS - BDX</span>
-                    </div>
+                        <li><a href="#">LA LOUPE</a></li>
+                        <li><a href="#">CHARTRES</a></li>
+                        <li><a href="#">TOULOUSE</a></li>
+                        <li><a href="#">LYON</a></li>
+                    </ul>
                 </div>
             </div>
+            <div class="col-lg-4  col-md-4 col-sm-4">
+            	<div class="footer_dv">
+                	<h4>A PROPOS DE NOUS</h4>
+                	<ul>
+                    	<li><a href="#">LA WILD CODE SCHOOL ?</a></li>
+                        <li><a href="#">STACK</a></li>
+                        <li><a href="#">CONTACT</a></li>
+                        <li><a href="#">BLOG</a></li>
+                        <li><a href="#">PRESSE</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-4 col-sm-4">
+            	<div class="footer_dv">
+                	<h4>SUIVEZ-NOUS</h4>
+                	<ul>
+                      <a href='#'><i class="fa fa-twitter fa-2x fa-fw"></i></a> <br>
+                      <a href='#'><i class="fa fa-facebook fa-2x fa-fw"></i></a> <br>
+                      <a href='#'><i class="fa fa-linkedin fa-2x fa-fw"></i></a> <br>
+                      <a href='#'><i class="fa fa-youtube-play fa-2x fa-fw"></i></a> <br>
+                      <a href='#'><i class="fa fa-google-plus fa-2x fa-fw"></i></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="container">
+              <div class="row">
+          		    <div class="col-md-12 text-center">
+                    <span style="color:black">© 2016 &nbsp; | &nbsp; Created &nbsp; with &nbsp; <i class="fa fa-heart" style="color:red"></i> &nbsp;  by  &nbsp; WCS - BDX</span>
+                  </div>
+              </div>
           </div>
+        </div>
 
-      </div>
-    </section>
-
-
-
-
+    </div>
+  </section>
 
 </body>
-
-
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="libs/jquery-3.1.1.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-
-
 
 <script src="libs/angular.min.js"></script>
 
@@ -194,11 +139,5 @@
 <script src="js/services/codersService.js"></script>
 
 <script src="js/app.js"></script>
-
-<script>
-
-
-
-</script>
 
 </html>

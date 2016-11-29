@@ -6,6 +6,14 @@
     /*margin : 40px;*/
 }
 
+/*.blogEntier{
+      display: flex ;
+      justify-content: space-between;
+      width : 1200px;
+      margin: auto;
+}*/
+
+
       /* Common */
 
 h1{
@@ -29,10 +37,6 @@ input{
   height : 2em;
   text-align: center;
   margin : 2px;
-}
-
-.largeImput{
-  width : 400px;
 }
 
 textarea{
@@ -114,6 +118,18 @@ textarea{
   background-color: rgba(251,168,88,0.2);
 }
 
+      /* write a new post */
+
+.newCard{
+  /*margin : auto ;
+  margin-bottom : 70px;
+  width : 850px;
+  padding : 30px;*/
+}
+
+
+
+
       /* Bouttons */
 
 .btn{
@@ -133,262 +149,18 @@ textarea{
   font-weight: bold;
 }
 
-.fa-plus-circle{
-  position: fixed;
-  top: 80px;
-  right: 40px;
-
-  padding: 10px;
-  z-index: 99999999;
-}
-.buttonsEdit{
-  position: fixed;
-  top: 80px;
-  right: 40px;
-
-  padding: 10px;
-  z-index: 99999999;
-}
-/*.btnAdd{
+.btnAddProject{
   font-weight: bold;
   font-size: 1.6em;
   margin : 5% 0 5% 45%;
-}*/
+}
 
-/*.btnOk, .btnEdit{
+.btnOk, .btnEdit{
 margin-left : 45%;
-}*/
-
-/***** NAVBAR *****/
-
-.navbar-inverse .navbar-nav>li>a {
-    color: rgb(251,168,88);
 }
 
-/***** FOOTER *****/
-
-.footer {
-    background: #222222 none repeat scroll 0 0;
-    border-top: 4px solid #fcab0e;
-    margin: 0;
-    padding: 20px 0;
-}
-.footer_dv {
-    width: 100%;
-}
-.footer_dv h4 {
-    color: #fcab0e;
-    font-family: roboto;
-    font-weight: bold;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-}
-.footer_dv ul {
-    list-style: outside none none;
-    margin: 0;
-    padding: 0;
-}
-.footer_dv ul li:first-child {
-    border-top: medium none;
-    box-shadow: none;
-}
-.footer_dv ul li {
-    border-top: 1px solid #000;
-    box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.2);
-    color: #f1f2f2;
-    padding: 5px 0;
-}
-.footer_dv p {
-    color: #fff;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 0 0 15px;
-    text-align: justify;
-}
-
-
-.footer-bottom {
- background:#d8d8d8;
- padding:15px 0;
- border-top:1px solid #d9d9d9;
- font-size:11px;
- color:#777;
-}
-
-.fa-twitter {
-    color: #4099FF;
-}
-
-.fa-facebook {
-    color: #3B5998;
-}
-
-.fa-youtube-play {
-    color: #e52d27;
-}
-
-/*.fa-google-plus-circle {
-    color: #e52d27;
-}*/
-
-.fa-rss {
-    color: #FF6600;
-}
-
-.fa-vine {
-    color: #00a478;
-}
-
-.fa-flickr {
-    color: #ff0084;
-}
-
-.fa-twitch {
-    color: #6441A5;
-}
-
-.fa-linkedin {
-    color: #007bb6;
-}
-
-.fa {
-    opacity: 0.7;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-
-.fa:hover{
-    opacity: 1;
-    transition: 1s;
-    -webkit-transition: 1s;
-}
-
-/*NAVBAR FILTER*/
-
-#menu-demo2, #menu-demo2 ul{
-  padding:0;
-  margin:0;
-  list-style:none;
-  text-align:center;
-}
-
-#menu-demo2 li{
-  display:inline-block;
-  position:relative;
-  border-radius:8px 8px 0 0;
-}
-
-#menu-demo2 ul li{
-  display:inherit;
-  border-radius:0;
-}
-
-#menu-demo2 ul li:hover{
-  border-radius:0;
-}
-
-#menu-demo2 ul li:last-child{
-  border-radius:0 0 8px 8px;
-}
-
-#menu-demo2 ul{
-  position:absolute;
-  z-index: 1000;
-  max-height:0;
-  left: 0;
-  right: 0;
-  overflow:hidden;
-  -moz-transition: .8s all .3s;
-  -webkit-transition: .8s all .3s;
-  transition: .8s all .3s;
-}
-
-#menu-demo2 li:hover ul{
-  max-height:15em;
-}
-
-/* background des liens menus */
-  #menu-demo2 li:first-child{
-  background-color: #65537A;
-  /*background-color: #729EBF;*/
-  background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
-  background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
-}
-
-#menu-demo2 li:nth-child(2){
-  background-color: #729EBF;
-  background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
-  /*background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);*/
-}
-
-#menu-demo2 li:nth-child(3){
-  background-color: #F6AD1A;
-  background-image:-webkit-linear-gradient(top, #F6AD1A 0%, #9F391A 100%);
-  background-image:linear-gradient(to bottom, #F6AD1A 0%, #9F391A 100%);
-}
-
-#menu-demo2 li:last-child {
-  background-color: #CFFF6A;
-  background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
-  background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
-}
-
-/* background des liens sous menus */
-#menu-demo2 li:first-child li{
-  /*background:#2A2333;*/
-  background:gray;
-}
-
-#menu-demo2 li:nth-child(2) li{
-  /*background:#333A40;*/
-  background:gray;
-}
-
-#menu-demo2 li:nth-child(3) li{
-  /*background:#9F391A;*/
-  background:gray;
-}
-
-#menu-demo2 li:last-child li{
-  /*background:#677F35;*/
-  background:gray;
-}
-
-/* background des liens menus et sous menus au survol */
-#menu-demo2 li:first-child:hover, #menu-demo2 li:first-child li:hover{
-  background:#65537A;
-}
-
-#menu-demo2 li:nth-child(2):hover, #menu-demo2 li:nth-child(2) li:hover{
-  background:#729EBF;
-}
-
-#menu-demo2 li:nth-child(3):hover, #menu-demo2 li:nth-child(3) li:hover{
-  background:#F6AD1A;
-}
-
-#menu-demo2 li:last-child:hover, #menu-demo2 li:last-child li:hover{
-  background:#CFFF6A;
-}
-
-/* les a href */
-#menu-demo2 a{
-  text-decoration:none;
-  display:block;
-  padding:8px 32px;
-  color:#fff;
-  font-family:arial;
-}
-
-#menu-demo2 ul a{
-  padding:8px 0;
-}
-
-#menu-demo2 li:hover li a{
-  color:#fff;
-  text-transform:inherit;
-}
-
-#menu-demo2 li:hover a, #menu-demo2 li li:hover a{
-  color:#000;
+.nextprev{
+  width : 40px;
+  font-weight: bold;
+  font-size: 1.2em;
 }

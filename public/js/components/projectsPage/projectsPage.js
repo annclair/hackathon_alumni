@@ -57,12 +57,11 @@
                 this.selectedProject = null
             }
 
-            // this.selectedProject.visuel = {
-            //   "filesize": 54836, /* bytes */
-            //   "filetype": "image/jpeg",
-            //   "filename": "profile.jpg",
-            //   "base64":   "/9j/4AAQSkZJRgABAgAAAQABAAD//gAEKgD/4gIctcwIQA..."
-            // }
+            // mise en place du filtre
+            this.orderByMe = (x) => {
+              this.myOrderBy = x;
+            }
+
 
         }]
     })

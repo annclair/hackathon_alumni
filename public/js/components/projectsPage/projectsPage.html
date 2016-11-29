@@ -3,13 +3,62 @@
 
         <h1> Les projets de la Wild Code School</h1>
 
+        <!-- FILTER NAVBAR -->
+        <div class="navbar-filter">
+          <ul id="menu-demo2" style="margin-top:95px">
+          	<li><a>Type de projet</a>
+          		<ul>
+          			<li><a href="" ng-click="myOrderBy = 'web-apps'">Web Apps</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'mobile-apps'">Mobile Apps</a></li>
+          		</ul>
+
+          	</li>
+          	<li><a>Langages</a>
+          		<ul>
+          			<!-- <li><a href="#" ng-click="orderByMe('php')">Php</a></li> -->
+          			<li><a href="" ng-click="myOrderBy = 'php'">Php</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'javascript'">Javascript</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'ruby'">Ruby</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'java'">Java</a></li>
+          		</ul>
+          	</li>
+          	<li><a>Technos</a>
+          		<ul>
+          			<li><a href="#"href="" ng-click="myOrderBy = 'pages-statiques'">Pages statiques</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'symfony'">Symfony</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'drupal'">Drupal</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'wordpress'">Wordpress</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'prestashop'">Prestashop</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'mean-stack'">Mean Stack</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'ionic'">Ionic</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'ruby-on-rails'">Ruby on Rails</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'android'">Android</a></li>
+          		</ul>
+          	</li>
+          	<li><a>Ecoles</a>
+          		<ul>
+          			<li><a href="" ng-click="myOrderBy = 'la-loupe'">La Loupe</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'chartres'">Chartres</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'orleans'">Orléans</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'bordeaux'">Bordeaux</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'toulouse'">Toulouse</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'lyon'">Lyon</a></li>
+                <li><a href="" ng-click="myOrderBy = 'fontainebleau'">Fontainebleau</a></li>
+          		</ul>
+          	</li>
+          </ul>
+        </div> <!-- FILTER NAVBAR -->
+
         <div class="container-fluid">
             <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                 <!-- Lecture simplifiée des projets -->
-                <div ng-repeat="project in $ctrl.projects" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
+                <div ng-repeat="project in $ctrl.projects | filter:{'language': myOrderBy}" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
                     <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
                     <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
+                    <p class="cardsP col-xs-12"> {{project.language}} </p>
+                    <p class="cardsP col-xs-12"> {{project.techno}} </p>
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
+
                     <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(project, $index)">En savoir +</button>
                 </div>
                 <!-- Lecture et modification des projets -->
