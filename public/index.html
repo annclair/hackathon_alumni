@@ -18,20 +18,6 @@
 
 <body>
 
-  <!-- NAVIGATION -->
-  <!-- <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="navbar-header">
-          <a class="navbar-brand" ui-sref="#">
-            <img class="" src="img/logo/logo_wcs.png" style="width:30px;height:30px" alt="" />
-          </a>
-      </div>
-      <ul class="nav navbar-nav">
-          <li><a ui-sref="app.home">Home</a></li>
-          <li><a ui-sref="app.coders">Coders</a></li>
-          <li><a ui-sref="app.projects">Projects</a></li>
-      </ul>
-  </nav> -->
-
   <!-- Static navbar -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -52,18 +38,7 @@
           <li class="active"><a ui-sref="app.home">Home</a></li>
           <li><a ui-sref="app.coders">Codeurs</a></li>
           <li><a ui-sref="app.projects">Projets</a></li>
-          <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li> -->
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> S'inscrire</a></li>
@@ -72,6 +47,56 @@
       </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
   </nav>
+
+      <ul id="menu-demo2" style="margin-top:95px">
+      	<li><a href="#">Type de projet</a>
+      		<ul>
+      			<li><a href="#">Web Apps</a></li>
+      			<li><a href="#">Mobile Apps</a></li>
+            <li>
+              <select ng-model="project_type">
+                <option>red</option>
+                <option>black</option>
+              </select>
+            </li>
+
+      		</ul>
+
+      	</li>
+      	<li><a href="#">Langages</a>
+      		<ul>
+      			<li><a href="#">Php</a></li>
+      			<li><a href="#">Javascript</a></li>
+      			<li><a href="#">Ruby</a></li>
+      			<li><a href="#">Java</a></li>
+      		</ul>
+      	</li>
+      	<li><a href="#">Technos</a>
+      		<ul>
+      			<li><a href="#">Pages statiques</a></li>
+      			<li><a href="#">Symphony</a></li>
+      			<li><a href="#">Drupal</a></li>
+      			<li><a href="#">Wordpress</a></li>
+      			<li><a href="#">Prestashop</a></li>
+      			<li><a href="#">Mean Stack</a></li>
+      			<li><a href="#">Ionic</a></li>
+      			<li><a href="#">Ruby on Rails</a></li>
+      			<li><a href="#">Android</a></li>
+      		</ul>
+      	</li>
+      	<li><a href="#">Ecoles</a>
+      		<ul>
+      			<li><a href="#">La Loupe</a></li>
+      			<li><a href="#">Chartres</a></li>
+      			<li><a href="#">Orléans</a></li>
+      			<li><a href="#">Bordeaux</a></li>
+      			<li><a href="#">Toulouse</a></li>
+      			<li><a href="#">Lyon</a></li>
+            <li><a href="#">Fontainebleau</a></li>
+      		</ul>
+      	</li>
+    </ul>
+
 
     <div>
         <!-- ui-view contains the nested views needed by ui-router -->
