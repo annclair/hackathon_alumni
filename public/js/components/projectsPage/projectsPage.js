@@ -20,6 +20,7 @@
 
             //on ajoute des projects
             this.add = () => {
+              this.newProject.visuel = this.visuel.base64
                 projectsService.add(this.newProject).then((res) => {
                     this.projects.push(res.data)
                     this.newProject = {}
@@ -30,6 +31,7 @@
             // on supprime les projects
 
             this.delete = () => {
+
                 projectsService.delete(this.selectedProject).then((res) => {
                     this.projects.splice(this.selectedProject.position, 1);
                     this.selectedProject = null
@@ -42,6 +44,7 @@
             }
 
             this.save = () => {
+              this.selectedProject.visuel = this.visuel.base64 ;
               projectsService.edit(this.selectedProject).then((res) => {
                   this.projects.push(res.data)
               })
@@ -53,6 +56,13 @@
                 this.projects[this.selectedProject.position] = _previous[this.selectedProject.position]
                 this.selectedProject = null
             }
+
+            // this.selectedProject.visuel = {
+            //   "filesize": 54836, /* bytes */
+            //   "filetype": "image/jpeg",
+            //   "filename": "profile.jpg",
+            //   "base64":   "/9j/4AAQSkZJRgABAgAAAQABAAD//gAEKgD/4gIctcwIQA..."
+            // }
 
         }]
     })

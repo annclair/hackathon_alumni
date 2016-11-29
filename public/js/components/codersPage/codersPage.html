@@ -5,38 +5,40 @@
 
         <div class="container-fluid">
             <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-
+                <!-- Lecture simplifiée des codeurs -->
                 <div ng-repeat="coder in $ctrl.coders" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedCoder && !$ctrl.newCoder">
-                    <img class="cardsImg col-xs-12 img-responsive img" src="../img/photos/photo_personne.jpg" />
+                    <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
                     <h2 class="cardsH2 col-xs-12"> {{coder.firstname}} {{coder.lastname}} </h2>
                     <p class="cardsP col-xs-12"> {{coder.resume | limitTo:200 }} </p>
                     <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(coder, $index)">En savoir +</button>
                 </div>
 
+                <!-- Lecture et modification des codeurs -->
                 <div class="col-xs-12 col-lg-offset-2 col-lg-8 selectedCard" ng-if="$ctrl.selectedCoder">
                     <button type="button" class="col-offset-xs-11 col-xs-1 btn btn-close" name="button" ng-click="$ctrl.selectedCoder = null"> X </button>
 
-                    <img class="selectedCardImg col-xs-12 img-responsive img" src="../img/photos/photo_personne.jpg" />
+                    <img class="selectedCardImg img-responsive img" ng-if="!$ctrl.selectedCoder.editMode" ng-src="data:image/jpg;base64,{{$ctrl.selectedCoder.photo}}" />
+                    <input ng-if="$ctrl.selectedCoder.editMode" type='file' name="photo" class="form-control" ng-model="$ctrl.photo" base-sixty-four-input>
 
                     <h2 class="selectedCardH2" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.firstname}} {{$ctrl.selectedCoder.lastname}}</h2>
                     <div class="row">
                         <p class="selectedCardP col-xs-offset-1 col-xs-2" ng-if="$ctrl.selectedCoder.editMode"> Prénom : </p>
-                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="firstname" ng-model="$ctrl.selectedCoder.firstname" class="editTitle col-lg-3">
-                        <p class="selectedCardP col-xs-offset-1 col-xs-2" ng-if="$ctrl.selectedCoder.editMode"> Nom : </p>
-                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="lastname" ng-model="$ctrl.selectedCoder.lastname" class="editTitle col-lg-3">
+                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="firstname" ng-model="$ctrl.selectedCoder.firstname" class="col-lg-3">
+                        <p class="selectedCardP col-xs-offset-1 col-xs-1" ng-if="$ctrl.selectedCoder.editMode"> Nom : </p>
+                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="lastname" ng-model="$ctrl.selectedCoder.lastname" class="col-lg-3">
                     </div>
 
                     <p class="selectedCardP" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.resume}} </p>
-                    <textarea rows="8" cols="100" ng-if="$ctrl.selectedCoder.editMode" type="text" name="title" ng-model="$ctrl.selectedCoder.resume" class="editContent"></textarea>
+                    <textarea rows="8" cols="100" ng-if="$ctrl.selectedCoder.editMode" type="text" name="resume" ng-model="$ctrl.selectedCoder.resume" class="editContent"></textarea>
                     <div class="row">
                         <p class="selectedCardP col-xs-3"> Contact : </p>
                         <p class="selectedCardP col-xs-9" ng-if="!$ctrl.selectedCoder.editMode"> {{$ctrl.selectedCoder.email}} </p>
-                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="email" ng-model="$ctrl.selectedCoder.email" class="editTitle">
+                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="email" ng-model="$ctrl.selectedCoder.email" class="largeImput">
                     </div>
                     <div class="row">
                         <p class="selectedCardP col-xs-3" ng-if=" $ctrl.selectedCoder.coderUrl"> Site personnel : </p>
                         <p class="selectedCardP col-xs-9" ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.coderUrl"> <a href="{{$ctrl.selectedCoder.coderUrl}}">{{$ctrl.selectedCoder.coderUrl}}</a> </p>
-                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="coderUrl" ng-model="$ctrl.selectedCoder.coderUrl" class="editTitle">
+                        <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="coderUrl" ng-model="$ctrl.selectedCoder.coderUrl" class="largeImput">
                     </div>
 
                     <div class="col-xs-12 col-lg-offset-1 col-lg-10">
@@ -45,64 +47,143 @@
                                 <h3 class="selectedCardH3"> Informations</h3>
                             </div>
                             <div class="row">
-                                <p class="selectedCardP col-lg-4">Ecole : </p>
+                                <p class="selectedCardP col-lg-4">Ecole :</p>
                                 <p class="selectedCardP col-lg-8" ng-if="!$ctrl.selectedCoder.editMode">{{$ctrl.selectedCoder.school}}</p>
-                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="school" ng-model="$ctrl.selectedCoder.school" class="editTitle selectedCardP col-lg-8">
+                                <p ng-if="$ctrl.selectedCoder.editMode"> <input type="text" name="school" ng-model="$ctrl.selectedCoder.school" class="selectedCardP"> </p>
                             </div>
                             <p>Languages utilisés : </p>
                             <ul>
-                                <li> HTML5 </li>
-                                <li> CSS3 </li>
+                                <li> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </li>
                                 <li ng-if="!$ctrl.selectedCoder.editMode">{{$ctrl.selectedCoder.language}}</li>
+                                <li ng-if="$ctrl.selectedCoder.editMode"> <input  type="text" name="language" ng-model="$ctrl.selectedCoder.language"> </li>
                             </ul>
-                            <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="language" ng-model="$ctrl.selectedCoder.language" class="editTitle">
+
                         </div>
 
                         <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo">
-                          <div class="row selectedCardInfoTitle">
-                              <h3 class="selectedCardH3"> Réseaux Sociaux</h3>
-                          </div>
+                            <div class="row selectedCardInfoTitle">
+                                <h3 class="selectedCardH3"> Réseaux Sociaux</h3>
+                            </div>
                             <div class="row">
                                 <i class="fa fa-github fa-2x col-xs-2"></i>
                                 <p class="selectedCardP" ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.github}}"> {{$ctrl.selectedCoder.github}}</a></p>
-                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="github" ng-model="$ctrl.selectedCoder.github" class="editTitle">
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="github" ng-model="$ctrl.selectedCoder.github">
                             </div>
                             <div class="row">
                                 <i class="fa fa-linkedin fa-2x col-xs-2"></i>
                                 <p class="selectedCardP" ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.linkedin}}"> {{$ctrl.selectedCoder.linkedin}}</a></p>
-                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="linkedin" ng-model="$ctrl.selectedCoder.linkedin" class="editTitle">
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="linkedin" ng-model="$ctrl.selectedCoder.linkedin">
                             </div>
                             <div class="row">
                                 <i class="fa fa-twitter fa-2x col-xs-2"></i>
                                 <p class="selectedCardP" ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.twitter}}"> {{$ctrl.selectedCoder.twitter}} </a></p>
-                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="twitter" ng-model="$ctrl.selectedCoder.twitter" class="editTitle">
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="twitter" ng-model="$ctrl.selectedCoder.twitter">
                             </div>
                             <div class="row">
                                 <i class="fa fa-facebook fa-2x col-xs-2" ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.facebook"></i>
                                 <p ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.facebook"><a href="{{$ctrl.selectedCoder.facebook}}">{{$ctrl.selectedCoder.facebook}}</a></p>
-                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="facebook" ng-model="$ctrl.selectedCoder.facebook" class="editTitle">
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="facebook" ng-model="$ctrl.selectedCoder.facebook">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-google-plus fa-2x col-xs-2" ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.google"></i>
+                                <p ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.google"><a href="{{$ctrl.selectedCoder.google}}">{{$ctrl.selectedCoder.google}}</a></p>
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="google" ng-model="$ctrl.selectedCoder.google">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-youtube-play fa-2x col-xs-2" ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.youtube"></i>
+                                <p ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.youtube"><a href="{{$ctrl.selectedCoder.youtube}}">{{$ctrl.selectedCoder.youtube}}</a></p>
+                                <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="youtube" ng-model="$ctrl.selectedCoder.youtube">
                             </div>
                         </div>
                     </div>
-
-
-                    <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> Modifier </button>
-                    <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false">Valider</button>
-                    <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.delete(selectedCoder, $index)"> Supprimer </button>
-                    <button type="button" class="btn " name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.cancel()">Annuler</button>
+                    <div class="buttonsEdit">
+                        <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.edit(selectedCoder) ; $ctrl.selectedCoder.editMode = true"> <i class="fa fa-pencil fa-3x"></i> </button>
+                        <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.save() ; $ctrl.selectedCoder.editMode = false"> <i class="fa fa-check fa-3x"></i> </button>
+                        <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedCoder.editMode" ng-click="$ctrl.delete(selectedCoder, $index)"> <i class="fa fa-trash fa-3x"></i> </button>
+                        <button type="button" class="btn " name="button" ng-if="$ctrl.selectedCoder.editMode" ng-click="$ctrl.cancel()"> <i class="fa fa-remove fa-3x"></i> </button>
+                    </div>
                 </div>
 
-                <div class="newCard" ng-if="$ctrl.newCoder">
+                <!-- Ajout de nouveaux codeurs -->
+                <div class="selectedCard col-xs-12 col-lg-offset-2 col-lg-8 selectedCard" ng-if="$ctrl.newCoder">
                     <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newCoder = null"> X </button>
-                    <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newCoder.title" class="newCardTitle">
-                    <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newCoder.visuel" class="newCardCentent">
-                    <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newCoder.resume" class="newContent"> </textarea>
+
+                    <div class="row">
+                        <p class="selectedCardP col-xs-offset-1 col-xs-2"> Prénom : </p>
+                        <input type="text" name="firstname" ng-model="$ctrl.newCoder.firstname" class=" col-lg-3">
+                        <p class="selectedCardP col-xs-offset-1 col-xs-1"> Nom : </p>
+                        <input type="text" name="lastname" ng-model="$ctrl.newCoder.lastname" class="col-lg-3">
+                    </div>
+
+                    <p> Entrez votre photo : </p>
+                    <input type='file' name="photo" class="form-control" ng-model="$ctrl.photo" base-sixty-four-input>
+
+                    <p> Entrez une déscription de vous : </p>
+                    <textarea rows="8" cols="100" type="text" name="resume" ng-model="$ctrl.newCoder.resume" class="editContent"></textarea>
+
+                    <div class="row">
+                        <p class="selectedCardP col-xs-3"> Contact : </p>
+                        <input type="text" name="email" ng-model="$ctrl.newCoder.email" class="largeImput">
+                    </div>
+                    <div class="row">
+                        <p class="selectedCardP col-xs-3"> Site personnel : </p>
+                        <input type="text" name="coderUrl" ng-model="$ctrl.newCoder.coderUrl" class="largeImput">
+                    </div>
+
+                    <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                        <div class="col-xs-12 col-lg-5 selectedCardInfo">
+                            <div class="row selectedCardInfoTitle">
+                                <h3 class="selectedCardH3"> Informations</h3>
+                            </div>
+                            <div class="row">
+                                <p class="selectedCardP">Ecole : <input type="text" name="school" ng-model="$ctrl.newCoder.school" class="selectedCardP"></p>
+
+                            </div>
+                            <p>Languages utilisés : </p>
+                            <ul>
+                                <li> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </li>
+                            </ul>
+                            <input type="text" name="language" ng-model="$ctrl.newCoder.language">
+                        </div>
+
+                        <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo">
+                            <div class="row selectedCardInfoTitle">
+                                <h3 class="selectedCardH3"> Réseaux Sociaux</h3>
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-github fa-2x col-xs-2"></i>
+                                <input type="text" name="github" ng-model="$ctrl.newCoder.github">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-linkedin fa-2x col-xs-2"></i>
+                                <input type="text" name="linkedin" ng-model="$ctrl.newCoder.linkedin">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-twitter fa-2x col-xs-2"></i>
+                                <input type="text" name="twitter" ng-model="$ctrl.newCoder.twitter">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-facebook fa-2x col-xs-2"></i>
+                                <input type="text" name="facebook" ng-model="$ctrl.newCoder.facebook">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-google-plus fa-2x col-xs-2"></i>
+                                <input type="text" name="google" ng-model="$ctrl.newCoder.google">
+                            </div>
+                            <div class="row">
+                                <i class="fa fa-youtube-play fa-2x col-xs-2"></i>
+                                <input type="text" name="youtube" ng-model="$ctrl.newCoder.youtube">
+                            </div>
+                        </div>
+                    </div>
                     <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
                 </div>
 
             </div>
+
         </div>
-        <button type="button" name="button" ng-click="($ctrl.newCoder = {})" class="btn btnAddCoder" ng-if="!$ctrl.selectedCoder"> + Add article </button>
+    </div>
+    <button type="button" name="button" ng-click="($ctrl.newCoder = {})" class="btn btnAdd" ng-if="!$ctrl.selectedCoder"> <i class=" fa fa-plus-circle fa-3x"></i> </button>
     </div>
 
 </section>

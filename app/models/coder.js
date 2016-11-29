@@ -51,6 +51,12 @@ let coderModel = mongoose.model('Coder', new mongoose.Schema({
     facebook : {
         type : String
     },
+    google+ : {
+        type : String
+    },
+    youtube : {
+        type : String
+    },
     coderUrl : {
         type : String
     }

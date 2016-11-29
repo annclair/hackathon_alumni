@@ -6,14 +6,6 @@
     /*margin : 40px;*/
 }
 
-/*.blogEntier{
-      display: flex ;
-      justify-content: space-between;
-      width : 1200px;
-      margin: auto;
-}*/
-
-
       /* Common */
 
 h1{
@@ -37,6 +29,10 @@ input{
   height : 2em;
   text-align: center;
   margin : 2px;
+}
+
+.largeImput{
+  width : 400px;
 }
 
 textarea{
@@ -117,18 +113,6 @@ textarea{
   background-color: rgba(251,168,88,0.2);
 }
 
-      /* write a new post */
-
-.newCard{
-  /*margin : auto ;
-  margin-bottom : 70px;
-  width : 850px;
-  padding : 30px;*/
-}
-
-
-
-
       /* Bouttons */
 
 .btn{
@@ -148,29 +132,37 @@ textarea{
   font-weight: bold;
 }
 
-.btnAddProject{
+.fa-plus-circle{
+  position: fixed;
+  top: 80px;
+  right: 40px;
+
+  padding: 10px;
+  z-index: 99999999;
+}
+.buttonsEdit{
+  position: fixed;
+  top: 80px;
+  right: 40px;
+
+  padding: 10px;
+  z-index: 99999999;
+}
+/*.btnAdd{
   font-weight: bold;
   font-size: 1.6em;
   margin : 5% 0 5% 45%;
-}
+}*/
 
-.btnOk, .btnEdit{
+/*.btnOk, .btnEdit{
 margin-left : 45%;
-}
-
-.nextprev{
-  width : 40px;
-  font-weight: bold;
-  font-size: 1.2em;
-}
+}*/
 
 /***** NAVBAR *****/
 
-.navbar-default .navbar-nav>.active>a {
-  color: orange;
-  background-color: rgba(251,168,88,0.2);
+.navbar-inverse .navbar-nav>li>a {
+    color: rgb(251,168,88);
 }
-
 
 /***** FOOTER *****/
 
@@ -233,6 +225,10 @@ margin-left : 45%;
 .fa-youtube-play {
     color: #e52d27;
 }
+
+/*.fa-google-plus-circle {
+    color: #e52d27;
+}*/
 
 .fa-rss {
     color: #FF6600;
