@@ -5,90 +5,157 @@
 
         <div class="container-fluid">
             <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                <!-- Lecture simplifiée des projets -->
                 <div ng-repeat="project in $ctrl.projects" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
-                    <img class="cardsImg col-xs-12 img-responsive img" src="../img/visuels/canteloup-project.png" />
+                    <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
                     <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
                     <button type="button" name="button" class="btn btnLearnMore col-xs-offset-9 col-xs-2" ng-click="$ctrl.selected(project, $index)">En savoir +</button>
                 </div>
-
+                <!-- Lecture et modification des projets -->
                 <div class="selectedCard col-lg-offset-2 col-lg-8" ng-if="$ctrl.selectedProject">
                     <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedProject = null"> X </button>
 
-                    <img class="selectedCardImg img-responsive img" src="../img/visuels/canteloup-project.png" />
+                    <img class="selectedCardImg img-responsive img" ng-if="!$ctrl.selectedProject.editMode" ng-src="data:image/jpg;base64,{{$ctrl.selectedProject.visuel}}" />
+                    <input ng-if="$ctrl.selectedProject.editMode" type='file' name="visuel" class="form-control" ng-model="$ctrl.visuel" base-sixty-four-input>
 
                     <h2 class="selectedCardH2" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.title}} </h2>
-                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.title" class="editTitle">
+                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.title" class="largeImput">
 
                     <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.resume}} </p>
                     <textarea rows="8" cols="100" ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.resume" class="editContent"></textarea>
 
                     <div class="row">
                         <p class="selectedCardP col-xs-3" ng-if=" $ctrl.selectedProject.projectUrl"> Site du projet : </p>
-                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.projectUrl"> <a href="{{$ctrl.selectedProject.projectUrl}}"> {{$ctrl.selectedProject.projectUrl}} </a></p>
-                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="ProjectUrl" ng-model="$ctrl.selectedProject.projectUrl" class="editTitle">
+                        <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.projectUrl"> <a href="{{$ctrl.selectedProject.projectUrl}}"> {{$ctrl.selectedProject.projectUrl}} </a></p>
+                        <input ng-if="$ctrl.selectedProject.editMode" type="text" name="ProjectUrl" ng-model="$ctrl.selectedProject.projectUrl" class="largeImput">
 
-                    <div class="col-xs-12 col-lg-offset-1 col-lg-10">
-                        <div class="col-xs-12 col-lg-5 selectedCardInfo">
-                            <div class="row selectedCardInfoTitle">
-                                <h3 class="selectedCardH3"> Informations</h3>
+                        <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                            <div class="col-xs-12 col-lg-5 selectedCardInfo">
+                                <div class="row selectedCardInfoTitle">
+                                    <h3 class="selectedCardH3"> Informations</h3>
+                                </div>
+                                <div class="row">
+                                    <p class="selectedCardP col-lg-4">Ecole :</p>
+                                    <p class="selectedCardP col-lg-8" ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.school}}</p>
+                                    <p ng-if="$ctrl.selectedProject.editMode"> <input type="text" name="school" ng-model="$ctrl.selectedProject.school" class="selectedCardP"> </p>
+                                </div>
+                                <p>Languages utilisés : </p>
+                                <ul>
+                                    <li> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </li>
+                                    <li ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.language}} </li>
+                                    <li ng-if="$ctrl.selectedProject.editMode"><input type="text" name="language" ng-model="$ctrl.selectedProject.language"></li>
+                                </ul>
+
+                                <p ng-if="!$ctrl.selectedProject.editMode"> Technologie utilisés : {{$ctrl.selectedProject.techno}} </p>
+                                <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" placeholder="Technologie utilisée" type="text" name="language" ng-model="$ctrl.selectedProject.techno"></p>
+                                <div class="row">
+                                    <i class="fa fa-github fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github"></i>
+                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.github"> <a href="{{$ctrl.selectedProject.github}}"> {{$ctrl.selectedProject.github}}</a></p>
+                                    <input ng-if="$ctrl.selectedProject.editMode" type="text" name="github" ng-model="$ctrl.selectedProject.github">
+                                </div>
                             </div>
-                            <div class="row">
-                                <p class="selectedCardP col-lg-4">Ecole : </p>
-                                <p class="selectedCardP col-lg-8" ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.school}}</p>
-                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="school" ng-model="$ctrl.selectedProject.school" class="editTitle selectedCardP col-lg-8">
+
+                            <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.customerName">
+                                <div class="row selectedCardInfoTitle">
+                                    <h3 class="selectedCardH3"> Client :</h3>
+                                </div>
+
+                                <div class="row">
+                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerName"> {{$ctrl.selectedProject.customerName}}</p>
+                                    <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Nom du client" name="customerName" ng-model="$ctrl.selectedProject.customerName"></p>
+                                </div>
+                                <div class="row">
+                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerAddress"> {{$ctrl.selectedProject.customerAddress}}</p>
+                                    <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Adresse du client" name="customerAddress" ng-model="$ctrl.selectedProject.customerAddress"></p>
+                                </div>
+                                <div class="row">
+                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerEmail"> {{$ctrl.selectedProject.customerEmail}}</p>
+                                    <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Adresse mail du client" name="customerEmail" ng-model="$ctrl.selectedProject.customerEmail"></p>
+                                </div>
+                                <div class="row">
+                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerPhoneNumber"> {{$ctrl.selectedProject.customerPhoneNumber}}</p>
+                                    <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="N°de téléphone du client" name="customerPhoneNumber" ng-model="$ctrl.selectedProject.customerPhoneNumber"></p>
+                                </div>
+
                             </div>
-                            <p>Languages utilisés : </p>
-                            <ul>
-                                <li> HTML5 </li>
-                                <li> CSS3 </li>
-                                <li ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.language}}</li>
-                            </ul>
-                            <input ng-if="$ctrl.selectedProject.editMode" type="text" name="language" ng-model="$ctrl.selectedProject.language" class="editTitle">
                         </div>
-
-                        <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github || $ctrl.selectedProject.linkedin || $ctrl.selectedProject.twitter || $ctrl.selectedProject.facebook">
-                          <div class="row selectedCardInfoTitle">
-                              <h3 class="selectedCardH3" > Réseaux Sociaux</h3>
-                          </div>
-                            <div class="row">
-                                <i class="fa fa-github fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github"></i>
-                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.github"> <a href="{{$ctrl.selectedProject.github}}"> {{$ctrl.selectedProject.github}}</a></p>
-                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="github" ng-model="$ctrl.selectedProject.github" class="editTitle">
-                            </div>
-                            <div class="row">
-                                <i class="fa fa-linkedin fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.linkedin"></i>
-                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.linkedin"> <a href="{{$ctrl.selectedProject.linkedin}}"> {{$ctrl.selectedProject.linkedin}}</a></p>
-                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="linkedin" ng-model="$ctrl.selectedProject.linkedin" class="editTitle">
-                            </div>
-                            <div class="row">
-                                <i class="fa fa-twitter fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.twitter"></i>
-                                <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.twitter"> <a href="{{$ctrl.selectedProject.twitter}}"> {{$ctrl.selectedProject.twitter}} </a></p>
-                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="twitter" ng-model="$ctrl.selectedProject.twitter" class="editTitle">
-                            </div>
-                            <div class="row">
-                                <i class="fa fa-facebook fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.facebook"></i>
-                                <p ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.facebook"><a href="{{$ctrl.selectedProject.facebook}}">{{$ctrl.selectedProject.facebook}}</a></p>
-                                <input ng-if="$ctrl.selectedProject.editMode" type="text" name="facebook" ng-model="$ctrl.selectedProject.facebook" class="editTitle">
-                            </div>
+                        <div class="buttonsEdit">
+                            <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.edit(selectedProject) ; $ctrl.selectedProject.editMode = true"> <i class="fa fa-pencil fa-3x"></i> </button>
+                            <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.save() ; $ctrl.selectedProject.editMode = false"> <i class="fa fa-check fa-3x"></i> </button>
+                            <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.delete(selectedProject, $index)"> <i class="fa fa-trash fa-3x"></i> </button>
+                            <button type="button" class="btn " name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.cancel()"> <i class="fa fa-remove fa-3x"></i> </button>
                         </div>
                     </div>
 
-                    <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.edit(selectedProject) ; $ctrl.selectedProject.editMode = true"> Modifier </button>
-                    <button type="button" class="btn btnOk" name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.save() ; $ctrl.selectedProject.editMode = false">Valider</button>
-                    <button type="button" class="btn " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.delete(selectedProject, $index)"> Supprimer </button>
-                    <button type="button" class="btn " name="button" ng-if="$ctrl.selectedProject.editMode" ng-click="$ctrl.cancel()">Annuler</button>
                 </div>
-
-                <div class="newArticle" ng-if="$ctrl.newProject">
+                <!-- Ajout de nouveaux projets -->
+                <div class="selectedCard col-xs-12 col-lg-offset-2 col-lg-8 selectedCard" ng-if="$ctrl.newProject">
                     <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.newProject = null"> X </button>
-                    <input type="text" placeholder="Titre de l'article" name="title" ng-model="$ctrl.newProject.title" class="newTitle">
-                    <input type="text" placeholder="Nom de l'auteur" name="author" ng-model="$ctrl.newProject.visuel" class="newAuthor">
-                    <textarea rows="10" cols="100" type="text" placeholder="Contenu de l'article" name="content" ng-model="$ctrl.newProject.resume" class="newContent"> </textarea>
+
+                    <p class="text-center"><input type="text" placeholder="Nom du projet" name="title" ng-model="$ctrl.newProject.title" class="largeImput"></p>
+
+                    <p> Image du projet : </p>
+                    <input type='file' name="visuel" class="form-control" ng-model="$ctrl.visuel" base-sixty-four-input>
+
+                    <textarea rows="8" cols="100" placeholder="Résuumé du projet (contexte, client, demandes,...)"type="text" name="title" ng-model="$ctrl.newProject.resume"></textarea>
+
+                    <div class="row">
+                        <p class="selectedCardP col-xs-3"> Site du projet : </p>
+                        <input type="text" name="ProjectUrl" ng-model="$ctrl.$ctrl.newProject.projectUrl" class="largeImput">
+
+                        <div class="col-xs-12 col-lg-offset-1 col-lg-10">
+                            <div class="col-xs-12 col-lg-5 selectedCardInfo">
+                                <div class="row selectedCardInfoTitle">
+                                    <h3 class="selectedCardH3"> Informations</h3>
+                                </div>
+                                <div class="row">
+                                    <p class="selectedCardP">Ecole : <input type="text" name="school" ng-model="$ctrl.newProject.school" class="selectedCardP"> </p>
+
+                                </div>
+                                <p>Languages utilisés : </p>
+                                <ul>
+                                    <li> HTML5 </li>
+                                    <li> CSS3 </li>
+                                    <li> <input type="text" name="language" ng-model="$ctrl.newProject.language"> </li>
+                                </ul>
+                                <p class="text-center"><input type="text" placeholder="Technologie utilisée" name="techno" ng-model="$ctrl.newProject.techno"></p>
+                                <div class="row">
+                                    <i class="fa fa-github fa-2x col-xs-2"></i>
+                                    <input type="text" placeholder="Github du projet" name="github" ng-model="$ctrl.newProjects.github">
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo">
+                                <div class="row selectedCardInfoTitle">
+                                    <h3 class="selectedCardH3"> Client :</h3>
+                                </div>
+
+                                <p class="text-center">
+                                    <input type="text" placeholder="Nom du client" name="customerName" ng-model="$ctrl.newProject.customerName">
+                                </p>
+                                <p class="text-center">
+                                    <input type="text" placeholder="Adresse du client" name="customerAddress" ng-model="$ctrl.newProject.customerAddress">
+                                  </p>
+                                  <p class="text-center">
+                                    <input type="text" placeholder="Adresse mail du client" name="customerEmail" ng-model="$ctrl.newProject.customerEmail">
+                                  </p>
+                                  <p class="text-center">
+                                    <input type="text" placeholder="N°de téléphone du client" name="customerPhoneNumber" ng-model="$ctrl.newProject.customerPhoneNumber">
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
                     <button type="button" class="btn btnOk" name="button" ng-click="$ctrl.add()"> Valider </button>
                 </div>
 
+
             </div>
+
         </div>
-        <button type="button" name="button" ng-click="($ctrl.newProject = {})" class="btn btnAddProject" ng-if="!$ctrl.selectedProject"> + Add article </button>
+    </div>
+    <button type="button" name="button" ng-click="($ctrl.newProject = {})" class="btn btnAdd" ng-if="!$ctrl.selectedProject"> <i class=" fa fa-plus-circle fa-3x"></i> </button>
+    </div>
 </section>

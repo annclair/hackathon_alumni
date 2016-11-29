@@ -1,9 +1,9 @@
 'use strict'
 
 let mongoose = require('mongoose')
+let Schema = mongoose.Schema
 
 // Create du schéma Project
-let Schema = mongoose.Schema
 let projectModel = mongoose.model('Project', new mongoose.Schema({
     title : {
         type: String,
@@ -20,10 +20,19 @@ let projectModel = mongoose.model('Project', new mongoose.Schema({
         // ,
         // required: true
     },
+    projectUrl : {
+        type : String
+    },
     language : {
         type: String
         // ,
         // required: true
+    },
+    techno : {
+        type: String
+    },
+    type : {
+        type: String
     },
     school : {
         type : String
@@ -31,9 +40,19 @@ let projectModel = mongoose.model('Project', new mongoose.Schema({
     github : {
         type : String
     },
-    projectUrl : {
+    customerName{
         type : String
+    },
+    customerAddress{
+        type : String
+    },
+    customerEmail{
+        type : String
+    },
+    customerPhoneNumber{
+        type : Number
     }
+
     // ,
     //
     // coders : [{

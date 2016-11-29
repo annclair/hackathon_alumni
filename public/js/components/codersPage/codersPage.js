@@ -41,6 +41,7 @@
             }
 
             this.save = () => {
+              this.selectedCoder.photo = this.photo.base64
               codersService.edit(this.selectedCoder).then((res) => {
                   this.coders.push(res.data)
               })
