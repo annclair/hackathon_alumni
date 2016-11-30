@@ -57,13 +57,13 @@
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
 
                     <h3 class="cardsH3 col-xs-12 text-center"> Ses codeurs : </h3>
-                    <div ng-repeat="coder in project.coders | limitTo : 4" >
-                        <div class="container-fluid col-xs-2 cardsViewPic">
+                    <div ng-repeat="coder in project.coders | limitTo : 2" >
+                        <div class="col-offset-xs-4 col-xs-3 cardsViewPic">
                             <div class="row">
-                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
                             </div>
                             <div class="row">
-                                <p class="text-center">{{project.title}}</p>
+                                <p class="text-center">{{coder.firstname}}{{coder.lastname}}</p>
                             </div>
                         </div>
                     </div>
