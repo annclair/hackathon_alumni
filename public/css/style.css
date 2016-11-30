@@ -1,26 +1,19 @@
       /* home page */
 
 .blocPage{
-    margin: auto;
+    /*margin: auto;*/
     background-color: #fafafa;
-    /*margin : 40px;*/
 }
-
-/*.blogEntier{
-      display: flex ;
-      justify-content: space-between;
-      width : 1200px;
-      margin: auto;
-}*/
-
 
       /* Common */
 
 h1{
+font-size:3em;
 text-align: center;
 color: rgb(251,168,88);
 font-weight: bold;
-padding-top : 50px;
+padding-top : 100px;
+padding-bottom : 75px;
 }
 
 h2{
@@ -37,6 +30,10 @@ input{
   height : 2em;
   text-align: center;
   margin : 2px;
+}
+
+.largeImput{
+  width : 600px;
 }
 
 textarea{
@@ -86,10 +83,18 @@ textarea{
 
 @media(max-width : 768px ){
   .cards{
-    margin: 0px;}
+    margin: 0px;
+    margin-bottom: 30px;}
   .cardsP{
-    padding : 0px;
-    height : 130px;}
+    padding : 5px;
+    height : 130px;
+  }
+  h1{
+    font-size:2em;
+  }
+  .largeImput{
+    width : 200px;
+  }
 }
 
 
@@ -97,7 +102,7 @@ textarea{
 
 .selectedCard{
     margin-top : 30px;
-    width : 850px;
+    /*width : 850px;*/
     padding : 30px;
     background-color: white;
 }

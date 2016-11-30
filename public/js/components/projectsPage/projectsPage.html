@@ -15,7 +15,6 @@
           	</li>
           	<li><a>Langages</a>
           		<ul>
-          			<!-- <li><a href="#" ng-click="orderByMe('php')">Php</a></li> -->
           			<li><a href="" ng-click="myOrderBy = 'PHP'">Php</a></li>
           			<li><a href="" ng-click="myOrderBy = 'Javascript'">Javascript</a></li>
           			<li><a href="" ng-click="myOrderBy = 'Ruby'">Ruby</a></li>
@@ -54,7 +53,7 @@
                 <!-- Lecture simplifiée des projets -->
                 <div ng-repeat="project in $ctrl.projects | filter:{'language': myOrderBy}" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
                     <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
-                    <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>                    
+                    <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
 
                     <h3 class="cardsH3 col-xs-12 text-center"> Ses codeurs : </h3>
