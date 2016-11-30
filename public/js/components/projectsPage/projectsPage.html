@@ -58,12 +58,12 @@
 
                     <h3 class="cardsH3 col-xs-12 text-center"> Ses codeurs : </h3>
                     <div ng-repeat="coder in project.coders | limitTo : 2" >
-                        <div class="col-offset-xs-4 col-xs-3 cardsViewPic">
+                        <div class="col-xs-3 cardsViewPic">
                             <div class="row">
-                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
+                                <img class="cardsImg img-responsive img-circle imgRound img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
                             </div>
                             <div class="row">
-                                <p class="text-center">{{coder.firstname}}{{coder.lastname}}</p>
+                                <p class="text-center imgAZE">{{coder.firstname}} {{coder.lastname}}</p>
                             </div>
                         </div>
                     </div>
@@ -153,23 +153,40 @@
                                 </div>
 
                                 <div class="row">
-                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerName"> {{$ctrl.selectedProject.customerName}}</p>
+                                    <p class="selectedCardP addG" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerName"> {{$ctrl.selectedProject.customerName}}</p>
                                     <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Nom du client" name="customerName" ng-model="$ctrl.selectedProject.customerName"></p>
                                 </div>
                                 <div class="row">
-                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerAddress"> {{$ctrl.selectedProject.customerAddress}}</p>
+                                    <p class="selectedCardP addG" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerAddress"> {{$ctrl.selectedProject.customerAddress}}</p>
                                     <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Adresse du client" name="customerAddress" ng-model="$ctrl.selectedProject.customerAddress"></p>
                                 </div>
                                 <div class="row">
-                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerEmail"> {{$ctrl.selectedProject.customerEmail}}</p>
+                                    <p class="selectedCardP addG" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerEmail"> {{$ctrl.selectedProject.customerEmail}}</p>
                                     <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="Adresse mail du client" name="customerEmail" ng-model="$ctrl.selectedProject.customerEmail"></p>
                                 </div>
                                 <div class="row">
-                                    <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerPhoneNumber"> {{$ctrl.selectedProject.customerPhoneNumber}}</p>
+                                    <p class="selectedCardP addG" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.customerPhoneNumber"> {{$ctrl.selectedProject.customerPhoneNumber}}</p>
                                     <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" type="text" placeholder="N°de téléphone du client" name="customerPhoneNumber" ng-model="$ctrl.selectedProject.customerPhoneNumber"></p>
                                 </div>
 
                             </div>
+
+                            <div>
+                                <p class="cardsP col-xs-12"> Les codeurs qui ont participés a projet : </p>
+
+                                <div ng-repeat="coder in $ctrl.selectedProject.coders">
+                                    <div class="container-fluid col-xs-4 cardsViewPic">
+                                        <div class="row">
+                                            <img class="cardsImg img-responsive img-circle img imgRound" ng-src="data:image/jpg;base64,{{coder.photo}}" />
+                                        </div>
+                                        <div class="row">
+                                            <p class="text-center imgAZER">{{coder.firstname}} {{coder.lastname}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <imput ng-if="$ctrl.selectedCoder.editMode" type="text" name="project" ng-model="{{project.title}}">
+                            </div>
+
                         </div>
                         <div class="buttonsEdit">
                             <button type="button" class="btn btnEdit " name="button" ng-if="!$ctrl.selectedProject.editMode" ng-click="$ctrl.edit(selectedProject) ; $ctrl.selectedProject.editMode = true"> <i class="fa fa-pencil fa-3x"></i> </button>

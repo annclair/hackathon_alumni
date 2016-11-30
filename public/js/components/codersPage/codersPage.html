@@ -41,13 +41,13 @@
                     <p class="cardsP col-xs-12"> {{coder.resume | limitTo:200 }} </p>
 
                     <h3 class="cardsH3 col-xs-12 text-center"> Ses projets : </h3>
-                    <div ng-repeat="project in coder.projects | limitTo : 3">
+                    <div ng-repeat="project in coder.projects | limitTo : 2">
                         <div class="container-fluid col-xs-4 cardsViewPic">
                             <div class="row text-center">
-                                <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                                <img class="cardsImg img-responsive img-rounded img imgASZE" ng-src="data:image/jpg;base64,{{project.visuel}}" />
                             </div>
                             <div class="row">
-                                <p class="text-center">{{project.title}}</p>
+                                <p class="text-center imgASZErt">{{project.title}}</p>
                             </div>
                         </div>
                     </div>
@@ -116,23 +116,23 @@
                                 </p>
                             </div>
 
-                            <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo">
+                            <div class="col-xs-12 col-lg-offset-2 col-lg-5 selectedCardInfo" ng-if="$ctrl.selectedCoder.github || $ctrl.selectedCoder.linkedin || $ctrl.selectedCoder.twitter || $ctrl.selectedCoder.facebook || $ctrl.selectedCoder.google || $ctrl.selectedCoder.youtube">
                                 <div class="row selectedCardInfoTitle">
                                     <h3 class="selectedCardH3"> Réseaux Sociaux</h3>
                                 </div>
                                 <div class="row">
-                                    <i class="fa fa-github fa-2x col-xs-5"></i>
-                                    <p ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.github"> <a href="{{$ctrl.selectedCoder.github}}"> {{$ctrl.selectedCoder.github}}</a></p>
+                                    <i class="fa fa-github fa-2x col-xs-5"ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.github"></i>
+                                    <p ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.github}}"> {{$ctrl.selectedCoder.github}}</a></p>
                                     <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="github" ng-model="$ctrl.selectedCoder.github">
                                 </div>
                                 <div class="row">
-                                    <i class="fa fa-linkedin fa-2x col-xs-5"></i>
-                                    <p  ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.linkedin"> <a href="{{$ctrl.selectedCoder.linkedin}}"> {{$ctrl.selectedCoder.linkedin}}</a></p>
+                                    <i class="fa fa-linkedin fa-2x col-xs-5" ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.linkedin"></i>
+                                    <p  ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.linkedin}}"> {{$ctrl.selectedCoder.linkedin}}</a></p>
                                     <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="linkedin" ng-model="$ctrl.selectedCoder.linkedin">
                                 </div>
                                 <div class="row">
-                                    <i class="fa fa-twitter fa-2x col-xs-5"></i>
-                                    <p ng-if="!$ctrl.selectedCoder.editMode && $ctrl.selectedCoder.twitter"> <a href="{{$ctrl.selectedCoder.twitter}}"> {{$ctrl.selectedCoder.twitter}} </a></p>
+                                    <i class="fa fa-twitter fa-2x col-xs-5" ng-if="$ctrl.selectedCoder.editMode || $ctrl.selectedCoder.twitter"></i>
+                                    <p ng-if="!$ctrl.selectedCoder.editMode"> <a href="{{$ctrl.selectedCoder.twitter}}"> {{$ctrl.selectedCoder.twitter}} </a></p>
                                     <input ng-if="$ctrl.selectedCoder.editMode" type="text" name="twitter" ng-model="$ctrl.selectedCoder.twitter">
                                 </div>
                                 <div class="row">
@@ -158,9 +158,9 @@
                             <p class="cardsP col-xs-12"> Tous les projets auxquels {{$ctrl.selectedCoder.firstname}} {{$ctrl.selectedCoder.lastname}} a participé : </p>
 
                             <div ng-repeat="project in $ctrl.selectedCoder.projects | limitTo : 3">
-                                <div class="container-fluid col-xs-4 cardsViewPic">
+                                <div class="container-fluid col-offset-xs-1 col-xs-5 aze cardsViewPic">
                                     <div class="row">
-                                        <img class="cardsImg img-responsive img-rounded img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                                        <img class="cardsImg img-responsive img-rounded img " ng-src="data:image/jpg;base64,{{project.visuel}}" />
                                     </div>
                                     <div class="row">
                                         <p class="text-center">{{project.title}}</p>

@@ -1,5 +1,10 @@
       /* home page */
-
+.BigLogo{
+  height : 400px;
+  margin-top : 20px;
+  margin-bottom : 20px;
+}
+.end{ margin-bottom : 20px;}
 .blocPage{
     /*margin: auto;*/
     background-color: #fafafa;
@@ -137,7 +142,7 @@ textarea{
 .selectedCardInfo{
     border:orange solid 2px;
     margin : 20px;
-    padding : 10px;
+    padding : 0 10px 0 10px ;
 }
 
 .selectedCardH3{
@@ -147,6 +152,7 @@ textarea{
 
 .selectedCardInfoTitle{
   background-color: rgba(251,168,88,0.2);
+  padding : 0px;
   margin-bottom : 5px;
 }
 
@@ -162,7 +168,29 @@ textarea{
 .addP{
   margin-top : 6px;
 }
+.addG{
+  margin-left : 12px;
+}
 
+@media(min-width : 1200px){
+    .imgRound{
+          margin-left: 130px;  }
+
+    .imgAZE{
+        margin-left : 175px;}
+
+    .imgAZER{
+        margin-left : 220px;}
+
+    .aze{
+        margin-left : 40px;}
+
+    .imgASZE{
+        margin-left : 85px;}
+
+    .imgASZErt{
+        margin-left : 110px;}
+}
 
 
 
