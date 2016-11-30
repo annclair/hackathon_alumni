@@ -78,7 +78,12 @@ textarea{
 }
 
 .cardsViewPic{
-  margin : 3px;
+    margin : 3px;
+}
+
+.cardsImnView{
+    height : 270px;
+    width : 510px ;
 }
 
 @media(max-width : 768px ){
@@ -99,6 +104,14 @@ textarea{
 
 
 /* on open post */
+
+.view{
+    margin-bottom : 60px;
+    padding : 0px;
+    background-color: white;
+    box-shadow: 0 0 50px #d8d8d8;
+
+}
 
 .selectedCard{
     margin-top : 30px;
@@ -123,6 +136,8 @@ textarea{
 
 .selectedCardInfo{
     border:orange solid 2px;
+    margin : 20px;
+    padding : 10px;
 }
 
 .selectedCardH3{
@@ -132,6 +147,7 @@ textarea{
 
 .selectedCardInfoTitle{
   background-color: rgba(251,168,88,0.2);
+  margin-bottom : 5px;
 }
 
       /* write a new post */
@@ -141,6 +157,10 @@ textarea{
   margin-bottom : 70px;
   width : 850px;
   padding : 30px;*/
+}
+
+.addP{
+  margin-top : 6px;
 }
 
 
