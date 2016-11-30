@@ -16,34 +16,34 @@
           	<li><a>Langages</a>
           		<ul>
           			<!-- <li><a href="#" ng-click="orderByMe('php')">Php</a></li> -->
-          			<li><a href="" ng-click="myOrderBy = 'php'">Php</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'javascript'">Javascript</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'ruby'">Ruby</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'java'">Java</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'PHP'">Php</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Javascript'">Javascript</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Ruby'">Ruby</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Java '">Java </a></li>
           		</ul>
           	</li>
           	<li><a>Technos</a>
           		<ul>
-          			<li><a href="#"href="" ng-click="myOrderBy = 'pages-statiques'">Pages statiques</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'symfony'">Symfony</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'drupal'">Drupal</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'wordpress'">Wordpress</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'prestashop'">Prestashop</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'mean-stack'">Mean Stack</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'ionic'">Ionic</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'ruby-on-rails'">Ruby on Rails</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'android'">Android</a></li>
+          			<li><a href=""href="" ng-click="myOrderBy = 'Pages statiques'">Pages statiques</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Symfony'">Symfony</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Drupal'">Drupal</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Wordpress'">Wordpress</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Prestashop'">Prestashop</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Mean-stack'">Mean Stack</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Ionic'">Ionic</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Ruby-on-rails'">Ruby on Rails</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Android'">Android</a></li>
           		</ul>
           	</li>
           	<li><a>Ecoles</a>
           		<ul>
-          			<li><a href="" ng-click="myOrderBy = 'la-loupe'">La Loupe</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'chartres'">Chartres</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'orleans'">Orléans</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'bordeaux'">Bordeaux</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'toulouse'">Toulouse</a></li>
-          			<li><a href="" ng-click="myOrderBy = 'lyon'">Lyon</a></li>
-                <li><a href="" ng-click="myOrderBy = 'fontainebleau'">Fontainebleau</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'La Loupe'">La Loupe</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Chartres'">Chartres</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Orleans'">Orléans</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Bordeaux'">Bordeaux</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Toulouse'">Toulouse</a></li>
+          			<li><a href="" ng-click="myOrderBy = 'Lyon'">Lyon</a></li>
+                <li><a href="" ng-click="myOrderBy = 'Fontainebleau'">Fontainebleau</a></li>
           		</ul>
           	</li>
           </ul>
@@ -54,9 +54,7 @@
                 <!-- Lecture simplifiée des projets -->
                 <div ng-repeat="project in $ctrl.projects | filter:{'language': myOrderBy}" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
                     <img class="cardsImg col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
-                    <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
-                    <p class="cardsP col-xs-12"> {{project.language}} </p>
-                    <p class="cardsP col-xs-12"> {{project.techno}} </p>
+                    <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>                    
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
 
                     <h3 class="cardsH3 col-xs-12 text-center"> Ses codeurs : </h3>
@@ -99,17 +97,50 @@
                                 <div class="row">
                                     <p class="selectedCardP col-lg-4">Ecole :</p>
                                     <p class="selectedCardP col-lg-8" ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.school}}</p>
-                                    <p ng-if="$ctrl.selectedProject.editMode"> <input type="text" name="school" ng-model="$ctrl.selectedProject.school" class="selectedCardP"> </p>
+                                    <p ng-if="$ctrl.selectedProject.editMode">
+                                        <select class="form-control" name="school" ng-model="$ctrl.selectedProject.school" class="selectedCardP">
+                                          <option name="school" value="La Loupe">La Loupe</option>
+                                          <option name="school" value="Chartres">Chartres</option>
+                                          <option name="school" value="Orléans">Orléans</option>
+                                          <option name="school" value="Bordeaux">Bordeaux</option>
+                                          <option name="school" value="Toulouse">Toulouse</option>
+                                          <option name="school" value="Lyon">Lyon</option>
+                                          <option name="school" value="Fontainebleau">Fontainebleau</option>
+                                        </select>
+                                    </p>
                                 </div>
                                 <p>Languages utilisés : </p>
-                                <ul>
-                                    <li> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </li>
-                                    <li ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.language}} </li>
-                                    <li ng-if="$ctrl.selectedProject.editMode"><input type="text" name="language" ng-model="$ctrl.selectedProject.language"></li>
-                                </ul>
-
-                                <p ng-if="!$ctrl.selectedProject.editMode"> Technologie utilisés : {{$ctrl.selectedProject.techno}} </p>
-                                <p class="text-center"><input ng-if="$ctrl.selectedProject.editMode" placeholder="Technologie utilisée" type="text" name="language" ng-model="$ctrl.selectedProject.techno"></p>
+                                <p> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </p>
+                                <p ng-if="!$ctrl.selectedProject.editMode">{{$ctrl.selectedProject.language}} </p>
+                                <p ng-if="$ctrl.selectedProject.editMode">
+                                  <select class="form-control" name="language" ng-model="$ctrl.selectedProject.language">
+                                    <option name="language" value="Javascript">Javascript</option>
+                                    <option name="language" value="PHP">PHP</option>
+                                    <option name="language" value="Ruby">Ruby</option>
+                                    <option name="language" value="Java ">Java</option>
+                                  </select>
+                                </p>
+                                <p ng-if="!$ctrl.selectedProject.editMode"> Type de projet : {{$ctrl.selectedProject.type}} </p>
+                                <p ng-if="$ctrl.selectedProject.editMode">
+                                  <select class="form-control" name="type" ng-model="$ctrl.selectedProject.type">
+                                    <option name="type" value= "Web Apps">Web Apps</option>
+                                    <option name="type" value= "Mobile Apps">Mobile Apps</option>
+                                  </select>
+                                </p>
+                                <p ng-if="!$ctrl.selectedProject.editMode"> Technologie utilisée : {{$ctrl.selectedProject.techno}} </p>
+                                <p ng-if="$ctrl.selectedProject.editMode">
+                                  <select class="form-control" name="techno" ng-model="$ctrl.selectedProject.techno">
+                                    <option name="techno" value= "Pages statiques">Pages statiques</option>
+                                    <option name="techno" value= "Symfony">Symfony</option>
+                                    <option name="techno" value= "Drupal">Drupal</option>
+                                    <option name="techno" value= "Wordpress">Wordpress</option>
+                                    <option name="techno" value= "Prestashop">Prestashop</option>
+                                    <option name="techno" value= "Mean-stack">Mean stack</option>
+                                    <option name="techno" value= "Ionic">Ionic</option>
+                                    <option name="techno" value= "Ruby-on-rails">Ruby on Rails</option>
+                                    <option name="techno" value= "Android">Android</option>
+                                  </select>
+                                </p>
                                 <div class="row">
                                     <i class="fa fa-github fa-2x col-xs-2" ng-if="$ctrl.selectedProject.editMode || $ctrl.selectedProject.github"></i>
                                     <p class="selectedCardP" ng-if="!$ctrl.selectedProject.editMode && $ctrl.selectedProject.github"> <a href="{{$ctrl.selectedProject.github}}"> {{$ctrl.selectedProject.github}}</a></p>
@@ -171,16 +202,53 @@
                                     <h3 class="selectedCardH3"> Informations</h3>
                                 </div>
                                 <div class="row">
-                                    <p class="selectedCardP">Ecole : <input type="text" name="school" ng-model="$ctrl.newProject.school" class="selectedCardP"> </p>
-
+                                    <p class="selectedCardP">Ecole : </p>
+                                    <p>
+                                        <select class="form-control" name="school" ng-model="$ctrl.newProject.school" class="selectedCardP">
+                                          <option name="school" value="La Loupe">La Loupe</option>
+                                          <option name="school" value="Chartres">Chartres</option>
+                                          <option name="school" value="Orléans">Orléans</option>
+                                          <option name="school" value="Bordeaux">Bordeaux</option>
+                                          <option name="school" value="Toulouse">Toulouse</option>
+                                          <option name="school" value="Lyon">Lyon</option>
+                                          <option name="school" value="Fontainebleau">Fontainebleau</option>
+                                        </select>
+                                    </p>
                                 </div>
+
                                 <p>Languages utilisés : </p>
-                                <ul>
-                                    <li> HTML5 </li>
-                                    <li> CSS3 </li>
-                                    <li> <input type="text" name="language" ng-model="$ctrl.newProject.language"> </li>
-                                </ul>
-                                <p class="text-center"><input type="text" placeholder="Technologie utilisée" name="techno" ng-model="$ctrl.newProject.techno"></p>
+                                <div>
+                                    <p> <i class="fa fa-html5 fa-2x"></i> <i class="fa fa-css3 fa-2x"></i> </p>
+                                    <p>
+                                      <select class="form-control" name="language" ng-model="$ctrl.newProject.language">
+                                        <option name="language" value="Javascript">Javascript</option>
+                                        <option name="language" value="PHP">PHP</option>
+                                        <option name="language" value="Ruby">Ruby</option>
+                                        <option name="language" value="Java ">Java</option>
+                                      </select>
+                                    </p>
+                                </div>
+                                <p> Type de projet : </p>
+                                <p>
+                                  <select class="form-control" name="type" ng-model="$ctrl.newProject.type">
+                                    <option name="type" value= "Web Apps">Web Apps</option>
+                                    <option name="type" value= "Mobile Apps">Mobile Apps</option>
+                                  </select>
+                                </p>
+                                <p>Technologie utilisée : </p>
+                                <p>
+                                    <select class="form-control" name="techno" ng-model="$ctrl.newProject.techno">
+                                        <option name="techno" value= "Pages statiques">Pages statiques</option>
+                                        <option name="techno" value= "Symfony">Symfony</option>
+                                        <option name="techno" value= "Drupal">Drupal</option>
+                                        <option name="techno" value= "Wordpress">Wordpress</option>
+                                        <option name="techno" value= "Prestashop">Prestashop</option>
+                                        <option name="techno" value= "Mean-stack">Mean stack</option>
+                                        <option name="techno" value= "Ionic">Ionic</option>
+                                        <option name="techno" value= "Ruby-on-rails">Ruby on Rails</option>
+                                        <option name="techno" value= "Android">Android</option>
+                                    </select>
+                                </p>
                                 <div class="row">
                                     <i class="fa fa-github fa-2x col-xs-2"></i>
                                     <input type="text" placeholder="Github du projet" name="github" ng-model="$ctrl.newProjects.github">
