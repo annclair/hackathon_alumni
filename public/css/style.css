@@ -1,0 +1,198 @@
+      /* home page */
+
+.blocPage{
+    /*margin: auto;*/
+    background-color: #fafafa;
+}
+
+      /* Common */
+
+h1{
+font-size:3em;
+text-align: center;
+color: rgb(251,168,88);
+font-weight: bold;
+padding-top : 100px;
+padding-bottom : 75px;
+}
+
+h2{
+font-size: 1.8em;
+text-align: center;
+}
+
+p{
+text-align: justify;
+line-height: 1.6em;
+}
+
+input{
+  height : 2em;
+  text-align: center;
+  margin : 2px;
+}
+
+.largeImput{
+  width : 600px;
+}
+
+textarea{
+  margin : auto;
+}
+
+.img{
+  margin : 0;
+  padding: 0 ;
+}
+
+      /* posts style */
+
+.cards{
+    margin : 50px;
+    padding : 0px;
+    background-color: white;
+    box-shadow: 0 0 50px #d8d8d8;
+    /*width : 260px;*/
+}
+
+.cards:hover {
+    transform: scale(1.1);
+    z-index: 5;
+    box-shadow: 0 0 50px gray;
+}
+
+.cardsH2{
+    padding-top : 10px;
+}
+
+.cardsP {
+    padding : 10px 30px 10px 30px ;
+    height : 70px;
+}
+
+.cardsH3 {
+    padding : 10px 30px 10px 30px ;
+    font-size: : 1.2em;
+    color: rgb(251,168,88);
+
+}
+
+.cardsViewPic{
+    margin : 3px;
+}
+
+.cardsImnView{
+    height : 270px;
+    width : 510px ;
+}
+
+@media(max-width : 768px ){
+  .cards{
+    margin: 0px;
+    margin-bottom: 30px;}
+  .cardsP{
+    padding : 5px;
+    height : 130px;
+  }
+  h1{
+    font-size:2em;
+  }
+  .largeImput{
+    width : 200px;
+  }
+}
+
+
+/* on open post */
+
+.view{
+    margin-bottom : 60px;
+    padding : 0px;
+    background-color: white;
+    box-shadow: 0 0 50px #d8d8d8;
+
+}
+
+.selectedCard{
+    margin-top : 30px;
+    /*width : 850px;*/
+    padding : 30px;
+    background-color: white;
+}
+
+.selectedCardImg{
+    width : 100% !important;
+}
+
+.selectedCardH2{
+    font-weight: normal;
+    padding : 10px;
+
+}
+
+.selectedCardP{
+    /*width : auto;*/
+}
+
+.selectedCardInfo{
+    border:orange solid 2px;
+    margin : 20px;
+    padding : 10px;
+}
+
+.selectedCardH3{
+    color: rgb(251,168,88);
+    text-align: center;
+}
+
+.selectedCardInfoTitle{
+  background-color: rgba(251,168,88,0.2);
+  margin-bottom : 5px;
+}
+
+      /* write a new post */
+
+.newCard{
+  /*margin : auto ;
+  margin-bottom : 70px;
+  width : 850px;
+  padding : 30px;*/
+}
+
+.addP{
+  margin-top : 6px;
+}
+
+
+
+
+      /* Bouttons */
+
+.btn{
+  color: rgb(251,168,88);
+  border : none;
+  background-color: transparent;
+  font-size: 1em;
+}
+
+.btnLearnMore{
+  /*margin: 8% 0 1% 35%;*/
+}
+
+.btn-close{
+  float : right;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.btnOk, .btnEdit{
+margin-left : 45%;
+}
+
+.buttonsEdit{
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  padding: 10px;
+  z-index: 99999999;
+}

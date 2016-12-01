@@ -1,0 +1,12 @@
+/***** NAVBAR *****/
+
+.navbar-default .navbar-nav>.active>a::selection {
+  color: orange;
+  background-color: rgba(251,168,88,0.2);
+}
+
+
+#navbar > ul > a {
+  color: orange!important;
+  /*background-color: rgba(251,168,88,0.2);*/
+}
