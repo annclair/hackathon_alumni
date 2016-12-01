@@ -7,6 +7,11 @@ Le défi : mettre en avant des projets & mettre en avant des éleves
 Les conditions : un CRUD fonctionnel et une selection possible par techno.
 
 
+### Previews
+| Home   |      Page Codeurs      | Page Projets |
+|:----------:|:-------------:|:------:|
+| <img src="http://imgur.com/NqTlK7N.png" width="400px" />   |  <img src="http://imgur.com/HcDteuO.png" width="400px" />   | <img src="http://imgur.com/p0qoJUb.png" width="400px" /> |
+
 
 ### Prerequisites : 
 
