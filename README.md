@@ -8,30 +8,26 @@ Les conditions : un CRUD fonctionnel et une selection possible par techno.
 
 
 
-Prerequisites
+### Prerequisites : 
 
-    NodeJS
-    MongoDB
+	NodeJS 
+	MongoDB
 
-Installation
+### Installation :
 
-git clone 
-cd 
-npm i
+	git clone https://github.com/annclair/hackathon_alumni.git
+	cd hackathon_alumni
+	npm i
 
-Development
+### Development :
 
-node server.js
+	node server.js
 
 
-Contributing
+### Contributing :
 
     Fork it!
     Create your feature branch: git checkout -b my-new-feature
     Commit your changes: git commit -am 'Add some feature'
     Push to the branch: git push origin my-new-feature
     Submit a pull request
-
-Licence
-
-This project is licensed under the MIT Open Source license. For more information, see the LICENSE file in this repository.
