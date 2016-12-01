@@ -2,11 +2,10 @@
 
 Projet réalisé dans le cadre d'un hackathon de 48H.
 
-Le défi :
-        - mettre en avant des projets 
-        - mettre en avant des éleves
+Le défi : mettre en avant des projets & mettre en avant des éleves
         
-les conditions : un CRUD fonctionnel et une selection possible par techno.
+Les conditions : un CRUD fonctionnel et une selection possible par techno.
+
 
 
 Prerequisites
