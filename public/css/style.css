@@ -156,6 +156,10 @@ textarea{
   margin-bottom : 5px;
 }
 
+.imgZoom:hover {
+    transform: scale(1.1);
+    z-index: 5;}
+
       /* write a new post */
 
 .newCard{

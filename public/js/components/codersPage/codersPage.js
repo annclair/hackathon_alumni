@@ -20,7 +20,7 @@
 
             //on ajoute des coders
             this.add = () => {
-              this.newCoder.photo = this.photo.base64
+              this.newCoder.photo = this.photo
                 codersService.add(this.newCoder).then((res) => {
                     this.coders.push(res.data)
                     this.newCoder = {}
@@ -43,7 +43,7 @@
             }
 
             this.save = () => {
-              this.selectedCoder.photo = this.photo.base64
+              this.selectedCoder.photo = this.photo
               codersService.edit(this.selectedCoder).then((res) => {
                   this.coders.push(res.data)
               })

@@ -52,7 +52,7 @@
             <div class="col-xs-12 col-lg-offset-1 col-lg-10">
                 <!-- Lecture simplifiée des projets -->
                 <div ng-repeat="project in $ctrl.projects | filter:{'language': myOrderBy}" class="cards col-xs-12 col-md-6 col-lg-5" ng-if="!$ctrl.selectedProject && !$ctrl.newProject">
-                    <img class="cardsImg cardsImnView col-xs-12 img-responsive img" ng-src="data:image/jpg;base64,{{project.visuel}}" />
+                    <img class="cardsImg cardsImnView col-xs-12 img-responsive img" ng-src="{{project.visuel}}.png" />
                     <h2 class="cardsH2 col-xs-12"> {{project.title}} </h2>
                     <p class="cardsP col-xs-12"> {{project.resume | limitTo:200 }} </p>
 
@@ -60,7 +60,7 @@
                     <div ng-repeat="coder in project.coders | limitTo : 2" >
                         <div class="col-xs-3 cardsViewPic">
                             <div class="row">
-                                <img class="cardsImg img-responsive img-circle imgRound img" ng-src="data:image/jpg;base64,{{coder.photo}}" />
+                                <img class="cardsImg img-responsive img-circle imgRound img" ng-src="{{coder.photo}}.png" />
                             </div>
                             <div class="row">
                                 <p class="text-center imgAZE">{{coder.firstname}} {{coder.lastname}}</p>
@@ -74,8 +74,8 @@
                 <div class="selectedCard col-lg-offset-2 col-lg-8 view" ng-if="$ctrl.selectedProject">
                     <button type="button" class="btn btn-close" name="button" ng-click="$ctrl.selectedProject = null"> X </button>
 
-                    <img class="selectedCardImg img-responsive img" ng-if="!$ctrl.selectedProject.editMode" ng-src="data:image/jpg;base64,{{$ctrl.selectedProject.visuel}}" />
-                    <input ng-if="$ctrl.selectedProject.editMode" type='file' name="visuel" class="form-control" ng-model="$ctrl.visuel" base-sixty-four-input>
+                    <img class="selectedCardImg img-responsive img" ng-if="!$ctrl.selectedProject.editMode" ng-src="{{$ctrl.selectedProject.visuel}}.png" />
+                    <input ng-if="$ctrl.selectedProject.editMode" type='text' name="visuel" class="col-lg-12" ng-model="$ctrl.visuel">
 
                     <h2 class="selectedCardH2" ng-if="!$ctrl.selectedProject.editMode"> {{$ctrl.selectedProject.title}} </h2>
                     <input ng-if="$ctrl.selectedProject.editMode" type="text" name="title" ng-model="$ctrl.selectedProject.title" class="largeImput">
@@ -177,7 +177,7 @@
                                 <div ng-repeat="coder in $ctrl.selectedProject.coders">
                                     <div class="container-fluid col-xs-4 cardsViewPic">
                                         <div class="row">
-                                            <img class="cardsImg img-responsive img-circle img imgRound" ng-src="data:image/jpg;base64,{{coder.photo}}" />
+                                            <img class="cardsImg img-responsive img-circle img imgRound" ng-src="{{coder.photo}}.png" />
                                         </div>
                                         <div class="row">
                                             <p class="text-center imgAZER">{{coder.firstname}} {{coder.lastname}}</p>
@@ -205,7 +205,7 @@
                     <input type="text" name="title" ng-model="$ctrl.newProject.title" class="largeImput">
 
                     <p class="addP"> Image du projet : </p>
-                    <input type='file' name="visuel" class="form-control" ng-model="$ctrl.visuel" base-sixty-four-input>
+                    <input type='file' name="visuel" class="text" ng-model="$ctrl.visuel">
 
                     <p class="addP"> Entrez une description du projet : </p>
                     <textarea rows="8" cols="100" placeholder="Résumé du projet (contexte, client, demandes,...)"type="text" name="title" ng-model="$ctrl.newProject.resume"></textarea>

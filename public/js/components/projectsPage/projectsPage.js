@@ -20,7 +20,7 @@
 
             //on ajoute des projects
             this.add = () => {
-              this.newProject.visuel = this.visuel.base64
+              this.newProject.visuel = this.visuel
                 projectsService.add(this.newProject).then((res) => {
                     this.projects.push(res.data)
                     this.newProject = {}
@@ -44,7 +44,7 @@
             }
 
             this.save = () => {
-              this.selectedProject.visuel = this.visuel.base64 ;
+              this.selectedProject.visuel = this.visuel ;
               projectsService.edit(this.selectedProject).then((res) => {
                   this.projects.push(res.data)
               })
