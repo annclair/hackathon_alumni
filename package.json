@@ -4,7 +4,6 @@
   "description": "exercice réalisation d'un blog - A.Claire",
   "main": "index.js",
   "dependencies": {
-    "angular-base64-upload": "^0.1.19",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
