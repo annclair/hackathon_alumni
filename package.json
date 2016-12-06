@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "WCS-Alumni",
   "version": "1.0.0",
-  "description": "exercice réalisation d'un blog - A.Claire",
+  "description": "hackathon 48H",
   "main": "index.js",
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -16,12 +16,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/annclair/EX-blog.git"
+    "url": "git+https://github.com/annclair/hackathon_alumni.git"
   },
-  "author": "Anne-Claire",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/annclair/EX-blog/issues"
+    "url": "https://github.com/annclair/hackathon_alumni/issues"
   },
-  "homepage": "https://github.com/annclair/EX-blog#readme"
+  "homepage": "https://github.com/annclair/hackathon_alumni#readme"
 }
