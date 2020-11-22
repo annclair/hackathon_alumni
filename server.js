@@ -49,7 +49,10 @@ process.on('SIGINT', function() {
 
 // Connexion à mongodb via mongoose
 let mongoose = require('mongoose')
-mongoose.connect(ENV.db);
+mongoose.connect(ENV.db, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // Création d'un middleware pour logger les erreurs - se refere aux next (err) plus haut en cas d'erreur, elles vont venir catégoriser les erreurs.
 app.use((error, request, response, next) => {
